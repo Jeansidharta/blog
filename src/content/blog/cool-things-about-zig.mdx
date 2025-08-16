@@ -1,0 +1,97 @@
+---
+title: "Cool things about Zig"
+description: "sdfkjsdkfkj"
+pubDate: "Aug 18 2025"
+---
+
+import Character from "../../components/markdown/character.astro";
+
+You know how C is one of the pillars of the modern digital world, and how it's
+still used in many projects, most notably the Linux Kernel? It's a really good
+and solid language, but its age does show, so what if we had C, but with a more
+modern take?
+
+<Character name="Terry">
+  Oh, great. Another "C replacement". Haven't you learned yet? Nothing will ever
+  replace C. Your grandchildren will be writing C.
+</Character>
+
+While it is true that C will be used generations to come, if you have the
+opportunity to use something more comfortable,
+
+Zig is, in short, a language that is:
+
+- Compiled
+- Strongly typed
+- with no runtime
+- with manual memory management (you must allocate and deallocate memory
+  yourself)
+
+## C integration
+
+Yes, that's right. One of Zig's greatest boons is that it can easily integrate
+with existing C code, and vice-versa. You can literally just import existing C
+code into Zig. Here, have a snippet of me importing
+[`xlib`](https://www.x.org/releases/current/doc/libX11/libX11/libX11.html) in a
+project I was working on:
+
+```zig
+const std = @import("std");
+const xlib = @cImport({
+    // This is literally just importing the raw xlib.h file
+    @cInclude("X11/Xlib.h");
+});
+const xcb = @cImport({
+    @cInclude("xcb/xproto.h");
+});
+pub const XorgClient = struct {
+    rootWindow: xlib.Window,
+    display: *xlib.Display,
+
+    pub fn createInit() !XorgClient {
+        // Open default display
+        const display = xlib.XOpenDisplay(null) orelse return error.UnableToOpenDisplay;
+        const root = xlib.DefaultRootWindow(display);
+        return .{ .rootWindow = root, .display = display };
+    }
+}
+```
+
+This means you can use any C library in a new zig project. It's not ideal, but
+it works. You have the entire C ecosystem in your fingertips. We don't have to
+rewrite everything in Zig, we can just use the existing C code to build on top
+of.
+
+## No hidden allocations
+
+This was originally something I was skeptical about, but ended up being one of
+my favorite features of the language. In Zig, most functions that need to do any
+kind of heap allocations will take in an `allocator` parameter. Here's an
+example:
+
+```zig
+pub fn createInit(allocator: Allocator) !*MessageContainer {
+    // Allocates a single MessageContainer on the heap.
+    // the "container" variable now has a pointer to that object.
+    const container = try allocator.create(MessageContainer);
+    container.message = "Hello!"; // Set a default message
+    return container;
+}
+```
+
+<Character name="Carlos">
+  So whenever I need to create things on the heap, I have to pass around this
+  `Allocator` object? This looks inconvenient.
+</Character>
+
+Yes, I can't deny that it adds a few extra steps. But you do get a
+
+## Optional and Error types
+
+## Union enums
+
+## Comptime!
+
+## Build.zig
+
+## Mascots

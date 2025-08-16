@@ -1,0 +1,23 @@
+---
+import {Image} from 'astro:assets';
+import BaseHead from '../components/BaseHead.astro';
+import Header from '../components/Header.astro';
+import PingPond from '../assets/pingpond-inverted.png';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<Image alt="Ping Pond Logo" src={PingPond} width={600} height={200}/>
+			<p>
+				Welcome to my blog! This is where I write my ideas and latest projects
+			</p>
+		</main>
+	</body>
+</html>

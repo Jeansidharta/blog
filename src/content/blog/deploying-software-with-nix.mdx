@@ -1,0 +1,89 @@
+---
+title: "Deploying software with ✨Nix✨"
+description: "sdfkjsdkfkj"
+pubDate: "Aug 18 2025"
+---
+
+import Character from "../../components/markdown/character.astro";
+import Sparkle from "../../components/markdown/sparkle.astro";
+
+Here's a scenario: you have a development machine -- fast, power-hungry, and
+convenient; a beast -- where you write your programs, and a deployment machine
+-- small, efficient, and slow; a fragile flower -- where you host all the
+applications you write. You want to be able to deploy the programs you make in
+the development machine into the deployment machine. How would you do it?
+
+<Character name="Carlos">
+  Hmm... I guess I'd write the software in the development machine, push it into
+  a remote git repository, pull it into the deployment machine, and build it
+  there. Maybe I'd write some scripts to automate the whole thing with ssh?
+</Character>
+
+Aha! The naive approach! Which is the one I've been using the past few years.
+Until I discovered the power of <Sparkle>Nix</Sparkle>.
+
+<Character name="Nelly">
+  Nix? You can actually use a collection of docker containers, orchestrated with
+  Jenkins, and automated with a Github CI/CD step to--
+</Character>
+
+Yeah, yeah... I'm sure there is some trickery that's possible using docker or
+some other fancy tool out there to solve this problem, but I want to talk about
+how you can use Nix to solve a good chunk of the problems with this process.
+
+## First, the problems with the naive approach
+
+So, to summarize, here are the steps we're doing in the naive approach:
+
+1. Write and test the software in our development machine.
+2. Push the software to a remote git repository, possibly Github.
+3. Pull the new changes to our deployment machine from the remote repository.
+4. build the software in the deployment machine.
+5. Update/restart the services/task-runners to use the new version of the
+   software.
+
+Steps 1, 2 and 5 are perfectly good and fine, but steps 3 and 4 are where most
+of the nonsense lies. Why are we building our software in our puny deployment
+machine when our beast of a development machine will do a much better job, much
+quicker, and much more efficient? Some projects can take ages to build, so it'd
+be a lot better to use the 16-core machine with 32GiB of RAM and 4 TiB of SSD,
+instead of the single-core, 1 GiB of RAM, 16 GiB of flash memory, adorable
+little machine that's the size of a credit card sitting in the corner of your
+room.
+
+Besides, this workflow implies you'd need your deployment machine to have all
+the necessary build tools installed and up to date. This is not only a waste of
+limited disk space (remember, these machines usually boot off of an SD card),
+but imagine having a version mismatch between your two machines? If you're
+normal and sane, this'd just be a matter of updating your build tools in the
+deployment machine, and rebuild. But if you're insane like me, and like using
+the latest git version of your compiler, you'd have to also compile your
+compiler in your 12 watts machine before building your software. And don't even
+think about using different versions of your compiler for different projects.
+
+<Character name="Carlos">
+  This cenario would immediately turn me from a software developer into a
+  woodworker living in a farm.
+</Character>
+
+## A better way
+
+we have this incredibly powerful and expensive machine that we've been writing
+and building our software since the start of the project, so it'd make sense to
+use that machine to also build the deployment version of that software, right?
+So, the ideal cenario would be:
+
+1. Write and test the software in our development machine.
+2. Build the production version of your software in our development machine.
+3. Send the already built production version of the software, with its runtime
+   dependencies, to our deployment machine.
+4. Update/restart the services/task-runners to use the new version of the
+   software.
+
+Steps 1 and 4 are the same as before, but now, steps 2 and 3 are using the very
+expensive resources to do most of the work, and our deployment machine can just
+worry about deployment.
+
+<Character name="Carlos">
+  Okay, but we just got new problems to worry about, no?
+</Character>

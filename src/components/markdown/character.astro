@@ -1,0 +1,61 @@
+---
+import { Image } from 'astro:assets';
+import Carlos from "../../assets/Carlos.png";
+import Nelly from "../../assets/Nelly.png";
+
+interface Props {
+	name: 'Carlos' | 'Nelly';
+}
+
+const {name} = Astro.props as Props;
+
+const fullNameMap: Record<Props['name'], string> = {
+	"Carlos": "Carlos, the Curious Capybara",
+	"Nelly": "Nelly, the Nerdy Newt",
+};
+
+const imageSrc = ({
+	"Carlos": Carlos,
+	"Nelly": Nelly,
+} as Record<Props['name'], ImageMetadata>)[name];
+
+const fullName = fullNameMap[name];
+
+---
+<div class="root">
+	<div class="portrait">
+		<Image
+			src={imageSrc}
+			alt={`${fullName} says:`}
+			title={fullName}
+			width={80}
+			height={80}
+		/>
+		{name}
+	</div>
+	<div class="text-bubble">
+		<slot/>
+	</div>
+</div>
+
+<style>
+div.root {
+	display: flex;
+	align-items: flex-start;
+	padding: 0 0 0 1rem;
+	gap: 8px;
+
+	div.portrait {
+		display: flex;
+		flex-direction: column;
+		flex-shrink: 0;
+		align-items: center;
+	}
+	div.text-bubble {
+		border-radius: 16px;
+		/* border: 1px solid black; */
+		background-color: #1b1a33;
+		padding: 0 1rem 0 1rem;
+	}
+}
+</style>
