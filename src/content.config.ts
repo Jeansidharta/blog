@@ -1,7 +1,10 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 import { exec } from "child_process";
-import { resolveAny } from "dns";
+
+type GitRef = { hash: string; date: Date; message: string };
+type Git = { creation: GitRef; updates: GitRef[] };
+export type GitData = { git: Git };
 
 async function execAsync(
 	command: string,
@@ -14,23 +17,43 @@ async function execAsync(
 	});
 }
 
-async function git(path: string) {
-	const { stdout } = await execAsync(
-		'git log --format="tformat:%H %at %s" --diff-filter=AM -- ' + path,
-	);
-	console.log("Git result:", stdout);
+function parseGitLine(line: string): GitRef | null {
+	if (line.length === 0) return null;
+	const [hash, date, ...message] = line.trim().split(" ");
+	return {
+		hash,
+		date: new Date(Number(date) * 1000),
+		message: message.join(" "),
+	};
+}
+
+async function gitLog(path: string): Promise<Git> {
+	const creation = (await execAsync(
+		'git log --format="tformat:%H %at %s" --diff-filter=A -- ' + path,
+	).then(({ stdout }) => parseGitLine(stdout.split("\n")[0]))) as GitRef;
+
+	const updates = (await execAsync(
+		'git log --format="tformat:%H %at %s" --diff-filter=M -- ' + path,
+	).then(({ stdout }) =>
+		stdout.split("\n").map(parseGitLine).filter(Boolean),
+	)) as GitRef[];
+
+	return { creation, updates };
 }
 
 const loaderMiddleware = () => {
-	const loader = glob({ base: "./src/content/blog", pattern: "**/*.{md,mdx}" });
+	const loader = glob({
+		base: "./src/content/blog",
+		pattern: import.meta.env.DEV ? "**/*.{md,mdx}" : "**/!(*.draft){md,mdx}",
+	});
 	const oldLoad = loader.load;
 	loader.load = async (ctx) => {
-		const res = await oldLoad(ctx);
-		for (const value of ctx.store.values()) {
-			console.log(value.filePath);
-			await git(value.filePath!);
+		await oldLoad(ctx);
+		for (const [key, value] of ctx.store.entries()) {
+			const git = await gitLog(value.filePath!);
+			ctx.store.delete(key);
+			ctx.store.set({ ...value, data: { ...value.data, git } });
 		}
-		return res;
 	};
 	return loader;
 };
@@ -42,11 +65,7 @@ const blog = defineCollection({
 	schema: ({ image }) =>
 		z.object({
 			title: z.string(),
-			description: z.string(),
-			// Transform string to Date object
-			pubDate: z.coerce.date(),
-			updatedDate: z.coerce.date().optional(),
-			heroImage: image().optional(),
+			description: z.string().optional(),
 		}),
 });
 

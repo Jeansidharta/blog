@@ -1,13 +1,16 @@
 ---
-import { Image } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
+import { type GitData } from '../content.config.ts';
 import BaseHead from '../components/BaseHead.astro';
 import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 
-type Props = CollectionEntry<'blog'>['data'];
+type Props = CollectionEntry<'blog'>['data'] & GitData;
 
-const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
+const { title, description, git} = Astro.props;
+
+const {creation, updates} = git;
+
 ---
 
 <html lang="en">
@@ -52,14 +55,17 @@ const { title, description, pubDate, updatedDate, heroImage } = Astro.props;
 					<div class="title">
 						<h1>{title}</h1>
 						<div class="date">
-							<FormattedDate date={pubDate} />
-							{
-								updatedDate && (
-									<div class="last-updated-on">
-										Last updated on <FormattedDate date={updatedDate} />
-									</div>
-								)
-							}
+							{ creation && <a href={"https://github.com/Jeansidharta/blog/commit/" + creation.hash} referrerpolicy="no-referrer" target="_blank">
+								<FormattedDate date={creation.date} />
+							</a>}
+							{updates.map(update => (
+								<div class="last-updated-on">
+								Updated on 
+								<a href={"https://github.com/Jeansidharta/blog/commit/" + update.hash} referrerpolicy="no-referrer" target="_blank">
+									<FormattedDate date={update.date} />
+								</a>
+								</div>
+							))}
 						</div>
 						<hr />
 					</div>
