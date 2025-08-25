@@ -3,4 +3,4 @@
 DERIVATION=$(nix store make-content-addressed . --json | jq -r ".rewrites.[]" )
 
 nix-copy-closure rpi "$DERIVATION"
-ssh rpi "ln -s $DERIVATION /var/www/html/sidharta-blog"
+ssh rpi "rm -f /var/www/html/sidharta-blog && ln -s $DERIVATION /var/www/html/sidharta-blog"
