@@ -10,12 +10,12 @@ So, you clicked on a Nix article, eh? That means you're either completely lost,
 or is a huge tech nerd like me. Either way, you're definitely welcome here. As
 the title suggests, I'll do my best to try and convince you to give Nix a
 chance, and explore the endless possibilities it can give you. Whether you've
-never heard of it, or already is Nix-curious and is waiting for an oportunity to
+never heard of it, or already are Nix-curious and waiting for an oportunity to
 start learning, this is for you.
 
 <Character name="Carlos">
   I've heard about this Nix thing from a few friends, but never quite understood
-  the hype
+  the hype.
 </Character>
 
 Perfect! I'll do my best to tell you why you might want to give it a go.
@@ -39,15 +39,15 @@ starting point, to [Nix pills](https://nixos.org/guides/nix-pills/) to learn
 about how it all works, or to [Zero to Nix](https://zero-to-nix.com/) for an
 easily digestible starting point for a total newbie.
 
-Also, I'm mostly talking about Nix the package manager, not just the linux
+Also, I'm mostly talking about Nix, the package manager, not just the linux
 distribution, NixOS.
 [You can try Nix on most popular distributions right now](https://nixos.org/download/).
 
 ## First, the why
 
 "Why would I spend so much time learning about such an esoteric tool? What value
-does it bring me?" you may ask. Let me first describe a few software-related
-nightmares, so I can later show you how Nix can banish them:
+does it bring me?" you may ask. First, let me describe a few software-related
+nightmares before I can show you how Nix can banish them:
 
 You're trying to use an older piece of software. Something that's been written
 in the dark ages of Node 8 or Python 2, or maybe it's just been a week and one
@@ -67,11 +67,11 @@ We don't have to live in dependency hell. Nix can fix that!
 Here's another scenario: you're a developer writing a piece of software that has
 many specific dependencies, and you want not only to properly document them, but
 to provide a quick and easy development environment for other contributors. You
-then decide to write a section in the README describing what dependencies with
-what versions are needed, and if you're feeling generous, you might even
-document what are the package names of those dependencies on the most popular
-distros. But at the end of the day, it's an exercise to the reader to get
-everything correct with the right version on their system.
+then decide to write a section in the README describing which versions of what
+dependencies are required, and if you're feeling generous, you might even
+document the package names of those dependencies on the most popular distros.
+But at the end of the day, it's an exercise to the reader to get everything
+correct with the right version on their system.
 
 <Character name="Carlos">
   Sudenly, my desire to contribute to the project has completely vanished...
@@ -79,10 +79,10 @@ everything correct with the right version on their system.
 
 Fear not! There is a better way! With Nix!
 
-A third scenario, if you're still not hooked: You're an enthusiast that loves
+A third scenario, if you're still not hooked: You're an enthusiast who loves
 trying out new software. You're constantly installing, configuring, tweaking...
-But you keep forgetting what you last used, or what last configuration worked
-well with it, or to delete software that you're not using anymore.
+but you keep forgetting what you last used, or what last configuration worked
+well with it, or to delete software that you're not using anymore, or to...
 
 <Character name="Carlos">
   What was that last line I had to add to /etc/fstab to make my flash drive
@@ -93,16 +93,11 @@ Well, as you might guess... Nix can fix that!
 
 ## Okay, I'm interested... But what is this Nix?
 
-Unfortunately, this part is a bit hard to explain without getting too much into
-how Nix works. This is my ~third~ ~fourth~ N-th rewrite of this whole section,
-because I keep finding myself writing about derivations and NAR hashes, when I
-promised myself this wouldn't be a tutorial or a deep dive.
-
 Nix is, fundamentally, a build tool. In its most absolutely basic form, You'd
-write derivations, which are a special Nix object that has all the necessary
-instructions and dependencies to build some piece of software. Derivations are,
-usually, just a bash script that invokes some tools (such as `gcc`,
-`cargo build`, or anything like that) on some source code. The action of
+write derivations, which are a special kind of Nix object that has all the
+necessary instructions and dependencies to build some piece of software. A
+derivation is, usually, just a bash script that invokes some tools (such as
+`gcc`, `cargo build`, or anything like that) on some source code. The action of
 building a derivation is to execute these instructions to generate the built
 software.
 
@@ -120,9 +115,9 @@ means that, for every unique set of inputs, there will be a unique output
 directory.
 
 An input is anything that is needed to build your code, including the source
-code, build tools, build commands, dependencies, and even then name and version
-you give your package. If any of these change, the hash changes, and you'll get
-a whole new build in a new directory.
+code, build tools, build commands, dependencies, and even the name and version
+you give your package. If any of these change, the hash will change, and you'll
+get a whole new build in a new directory.
 
 <Character name="Carlos">
   Okay, so, if I understand it correctly, you tell Nix how to build your
@@ -141,13 +136,13 @@ versions of Node can coexist on the same system without conflict.
 
 Since the list of dependencies is also part of the hash, we could even build Foo
 with different versions of its dependencies. You could build one version with
-Node 12, one with Node 18, and one with every version of node. They would all
-live in different output directories, without any conflict. You could, for a
-real world example, try building curl with Musl instead of Glibc, or build wget
-with an older version of openssl to test some vulnerabilities. These
-frankenstein versions of the packages would have their own separate directories,
-and could be used independently from their regular versions. Try doing that in a
-regular package manager. I dare you.
+Node 12, another with Node 18, and yet another with Node 22. They would all live
+in different output directories, without any conflict. You could, for a real
+world example, try building curl with Musl instead of Glibc, or build wget with
+an older version of openssl to test some vulnerabilities. These frankenstein
+versions of the packages would have their own separate directories, and could be
+used independently from their regular versions. Try doing that in a regular
+package manager. I dare you.
 
 ## Solving our problems with Nix
 
@@ -161,9 +156,9 @@ to realize that a lot of problems can be boiled down to what built tools already
 do best.
 
 We already explored how Nix can help us build multiple versions of the same
-software. That wasn't incredibly exciting, since it's what we expect a build
-tool to be able to do, but here's how Nix can help us solve the other problems
-that were brought up at the start of this article:
+software. That wasn't incredibly exciting, since it's what we expect to be
+within the realm of possibilities of a build, but here's how Nix can help us
+solve the other problems that were brought up at the start of this article:
 
 ### Running older software
 
@@ -274,19 +269,19 @@ Through the magic of flakes, you can! Here's a flake that'll give you
 
 ```
 
-Then just run `nix develop` and Boom (If you have a sane configuration, you
-might need some extra fluff to run this:
-`NIXPKGS_ALLOW_INSECURE=1 nix develop --impure`). Yes, This is insane. Madness.
-But if you need this, here it is. You'll always get the same version of the same
+Then just run `nix develop` and _💥Boom💥_ (If you have a sane configuration,
+you might need some extra fluff to run this:
+`NIXPKGS_ALLOW_INSECURE=1 nix develop --impure`). Yes, this is insane. Madness.
+But if you need this, here it is. You'll always get the same version of these
 packages.
 
 <Character name="Carlos">
-  I pray that I never need this, but I'm happy to know it's here.
+  I pray I'll never need this, but I'm happy to know it's here.
 </Character>
 
-### Easily test and install software
+### Easily try out and install software
 
-You want to try some software out? Don't want to remember to clean it up later?
+You want to try out some software? Don't want to remember to clean it up later?
 Sure! Go on [search.nix.org](https://search.nixos.org/) and see what's its
 package name in nixpkgs. Then, just run `nix shell nixpkgs#NAME_OF_PACKAGE`. For
 example, to get [nodejs](nodejs.org/), you can do `nix shell nixpkgs#nodejs`.
@@ -327,13 +322,12 @@ PATH="$bin:$PATH"
 exec bash
 ```
 
-In short, you can represent your "installed packages" as just a Nix derivation
-that builds a `bin` directory. This derivation is just Nix code, that is in a
-file, that can be tracked by git. If you add or remove any package, you can just
-rebuild your `bin` directory. This means you have a single file that represents
-your entire user space, and that can be version controlled, so you could see
-when you added or removed any software. Here's how you do it in a regular NixOS
-system:
+In short, you can represent your "installed packages" as a Nix derivation that
+builds a `bin` directory. This derivation is just Nix code, in a file, trackable
+by Git. If you add or remove any package, you can simply rebuild your `bin`
+directory. This means you have a single file representing your entire user
+space, which can be version controlled, so you could see which commit added or
+removed any software. Here's how you do it in a regular NixOS system:
 
 ```nix
 {
@@ -378,12 +372,13 @@ Want to remove curl and add [httpie](https://httpie.io/)? Sure, here you go!
 </Character>
 
 That's the beauty of it: no! Remember, we're only building the directory that'll
-be used in our $PATH environment variable. If another package needs curl to
+be used in our `$PATH` environment variable. If another package needs curl to
 function, Nix will install curl, make it available to that package, but won't
-add it to your $PATH, and won't polute your environment.
+add it to your `$PATH`, and won't polute your environment.
 
-There are more details about this process, such as making sure things like man
-pages are available too, but the essence of it is this.
+There are more details about this process, such as making sure things like
+[man pages](https://en.wikipedia.org/wiki/Man_page) are available too, but this
+is the essence of it.
 
 ### Overriding dependencies from software
 
@@ -430,7 +425,7 @@ Here's an example of a flake that builds wget with openssl version 1.1.1q (from
 
 ## Conclusion
 
-I've only even scratched the surface of what Nix can do. There's things like
+I've only even scratched the surface of what Nix can do. There are things like
 [cross-compilation](https://nix.dev/tutorials/cross-compilation.html),
 [generate ISO images of completely custom distributions](https://github.com/nix-community/nixos-generators),
 [use home-manager to write config files for most of your software](https://github.com/nix-community/home-manager),
