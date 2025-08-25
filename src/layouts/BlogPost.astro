@@ -9,7 +9,7 @@ type Props = CollectionEntry<'blog'>['data'] & GitData;
 
 const { title, description, git} = Astro.props;
 
-const {creation, updates} = git;
+const {creation, updates} = git ?? { creation: null, updates: [] };
 
 ---
 
@@ -31,7 +31,6 @@ const {creation, updates} = git;
 			.title {
 				margin-bottom: 1em;
 				padding: 1em 0;
-				text-align: center;
 				line-height: 1;
 			}
 			.title h1 {
@@ -55,15 +54,15 @@ const {creation, updates} = git;
 					<div class="title">
 						<h1>{title}</h1>
 						<div class="date">
-							{ creation && <a href={"https://github.com/Jeansidharta/blog/commit/" + creation.hash} referrerpolicy="no-referrer" target="_blank">
+{ creation && <>Written on <a href={"https://github.com/Jeansidharta/blog/commit/" + creation.hash} referrerpolicy="no-referrer" target="_blank">
 								<FormattedDate date={creation.date} />
-							</a>}
+							</a></>}
 							{updates.map(update => (
 								<div class="last-updated-on">
 								Updated on 
 								<a href={"https://github.com/Jeansidharta/blog/commit/" + update.hash} referrerpolicy="no-referrer" target="_blank">
 									<FormattedDate date={update.date} />
-								</a>
+								</a>: {update.message}
 								</div>
 							))}
 						</div>

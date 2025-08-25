@@ -3,7 +3,7 @@ import { glob } from "astro/loaders";
 import { exec } from "child_process";
 
 type GitRef = { hash: string; date: Date; message: string };
-type Git = { creation: GitRef; updates: GitRef[] };
+type Git = { creation: GitRef | null; updates: GitRef[] };
 export type GitData = { git: Git };
 
 async function execAsync(
@@ -28,9 +28,9 @@ function parseGitLine(line: string): GitRef | null {
 }
 
 async function gitLog(path: string): Promise<Git> {
-	const creation = (await execAsync(
+	const creation = await execAsync(
 		'git log --format="tformat:%H %at %s" --diff-filter=A -- ' + path,
-	).then(({ stdout }) => parseGitLine(stdout.split("\n")[0]))) as GitRef;
+	).then(({ stdout }) => parseGitLine(stdout.split("\n")[0]));
 
 	const updates = (await execAsync(
 		'git log --format="tformat:%H %at %s" --diff-filter=M -- ' + path,
@@ -50,7 +50,10 @@ const loaderMiddleware = () => {
 	loader.load = async (ctx) => {
 		await oldLoad(ctx);
 		for (const [key, value] of ctx.store.entries()) {
-			const git = await gitLog(value.filePath!);
+			const git = await gitLog(value.filePath!).catch(() => ({
+				creation: null,
+				updates: [],
+			}));
 			ctx.store.delete(key);
 			ctx.store.set({ ...value, data: { ...value.data, git } });
 		}
