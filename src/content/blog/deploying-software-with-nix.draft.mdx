@@ -31,47 +31,49 @@ Yeah, yeah... I'm sure there is some trickery that's possible using docker or
 some other fancy tool out there to solve this problem, but I want to talk about
 how you can use Nix to solve a good chunk of the problems with this process.
 
+Also, for the purposes of this article, **I'll be calling the deployment machine
+as the Server, and the development machine as the dev machine**
+
 ## First, the problems with the naive approach
 
 So, to summarize, here are the steps we're doing in the naive approach:
 
-1. Write and test the software in our development machine.
+1. Write and test the software in our dev machine.
 2. Push the software to a remote git repository, possibly Github.
-3. Pull the new changes to our deployment machine from the remote repository.
-4. build the software in the deployment machine.
+3. Pull the new changes to our server from the remote repository.
+4. build the software in the server.
 5. Update/restart the services/task-runners to use the new version of the
    software.
 
 Steps 1, 2 and 5 are perfectly good and fine, but steps 3 and 4 are where most
-of the nonsense lies. Why are we building our software in our puny deployment
-machine when our beast of a development machine will do a much better job, much
-quicker, and much more efficient? Some projects can take ages to build, so it'd
-be a lot better to use the 16-core machine with 32GiB of RAM and 4 TiB of SSD,
-instead of the single-core, 1 GiB of RAM, 16 GiB of flash memory, adorable
-little machine that's the size of a credit card sitting in the corner of your
-room.
+of the nonsense lies. Why are we building our software in our puny server when
+our beast of a dev machine will be much better, quicker, more efficient? Some
+projects can take ages to build, so it'd be a lot better to use the 16-core
+machine with 32GiB of RAM and 4 TiB of SSD, instead of the single-core, 1 GiB of
+RAM, 16 GiB of flash memory, adorable little machine that's the size of a
+credit, card, sitting in the corner of your room.
 
-Besides, this workflow implies you'd need your deployment machine to have all
-the necessary build tools installed and up to date. This is not only a waste of
-limited disk space (remember, these machines usually boot off of an SD card),
-but imagine having a version mismatch between your two machines? If you're
-normal and sane, this'd just be a matter of updating your build tools in the
-deployment machine, and rebuild. But if you're insane like me, and like using
-the latest git version of your compiler, you'd have to also compile your
-compiler in your 12 watts machine before building your software. And don't even
-think about using different versions of your compiler for different projects.
+Besides, this workflow implies you'd need your server to have all the necessary
+build tools installed and up to date. This is not only a waste of limited disk
+space (remember, these machines usually boot off of an SD card), but imagine
+having a version mismatch between your two machines? If you're normal and sane,
+this'd just be a matter of updating your build tools in the deployment machine,
+and rebuild. But if you're insane like me, and like using the latest git version
+of your compiler, you'd have to also compile your compiler in your 12 watts
+machine before building your software. And don't even think about using
+different versions of your compiler for different projects.
 
 <Character name="Cuf">
-  This cenario would immediately turn me from a software developer into a
+  This scenario would immediately turn me from a software developer into a
   woodworker living in a farm.
 </Character>
 
-## A better way
+## A better way ☀️
 
 we have this incredibly powerful and expensive machine that we've been writing
 and building our software since the start of the project, so it'd make sense to
 use that machine to also build the deployment version of that software, right?
-So, the ideal cenario would be:
+So, the ideal scenario would be:
 
 1. Write and test the software in our development machine.
 2. Build the production version of your software in our development machine.
@@ -81,8 +83,8 @@ So, the ideal cenario would be:
    software.
 
 Steps 1 and 4 are the same as before, but now, steps 2 and 3 are using the very
-expensive resources to do most of the work, and our deployment machine can just
-worry about deployment.
+expensive resources to do most of the work, and our server can just worry about
+serving.
 
 <Character name="Cuf">
   Okay, but we just got new problems to worry about, no?
