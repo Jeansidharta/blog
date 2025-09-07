@@ -13,7 +13,7 @@ chance, and explore the endless possibilities it can give you. Whether you've
 never heard of it, or already are Nix-curious and waiting for an oportunity to
 start learning, this is for you.
 
-<Character name="Carlos">
+<Character name="Cuf">
   I've heard about this Nix thing from a few friends, but never quite understood
   the hype.
 </Character>
@@ -60,7 +60,7 @@ system. So you decide your best chance is to build them from source. But the
 dependencies' dependencies are also not up to date, so you'd have to build those
 from source too, and then—
 
-<Character name="Carlos">Enough. Just end me already.</Character>
+<Character name="Cuf">Enough. Just end me already.</Character>
 
 We don't have to live in dependency hell. Nix can fix that!
 
@@ -73,7 +73,7 @@ document the package names of those dependencies on the most popular distros.
 But at the end of the day, it's an exercise to the reader to get everything
 correct with the right version on their system.
 
-<Character name="Carlos">
+<Character name="Cuf">
   Sudenly, my desire to contribute to the project has completely vanished...
 </Character>
 
@@ -84,7 +84,7 @@ trying out new software. You're constantly installing, configuring, tweaking...
 but you keep forgetting what you last used, or what last configuration worked
 well with it, or to delete software that you're not using anymore, or to...
 
-<Character name="Carlos">
+<Character name="Cuf">
   What was that last line I had to add to /etc/fstab to make my flash drive
   auto-mount again?
 </Character>
@@ -101,7 +101,7 @@ derivation is, usually, just a bash script that invokes some tools (such as
 building a derivation is to execute these instructions to generate the built
 software.
 
-<Character name="Carlos">
+<Character name="Cuf">
   Wait, so Nix just calls a bash script to build my stuff? How is that better
   than just using the script myself?
 </Character>
@@ -119,7 +119,7 @@ code, build tools, build commands, dependencies, and even the name and version
 you give your package. If any of these change, the hash will change, and you'll
 get a whole new build in a new directory.
 
-<Character name="Carlos">
+<Character name="Cuf">
   Okay, so, if I understand it correctly, you tell Nix how to build your
   package, and it'll build it in a unique directory. This still kinda sounds
   like a regular package manager. How does this help to solve the problems we
@@ -146,7 +146,7 @@ package manager. I dare you.
 
 ## Solving our problems with Nix
 
-<Character name="Carlos">
+<Character name="Cuf">
   Okay, so Nix is a fancy build tool to build software. We already have loads of
   those. How is Nix better? And how can it solve so many problems?
 </Character>
@@ -226,7 +226,7 @@ Then, we could run this with `nix-shell ./default.nix` (or simply `nix-shell`).
 This would put us into a shell with access to the `node` command and the
 `sqlite` command, along with access to sqlite's shared library objects.
 
-<Character name="Carlos">
+<Character name="Cuf">
   But what if I want to use a specific version of a program or library?
 </Character>
 
@@ -275,7 +275,7 @@ you might need some extra fluff to run this:
 But if you need this, here it is. You'll always get the same version of these
 packages.
 
-<Character name="Carlos">
+<Character name="Cuf">
   I pray I'll never need this, but I'm happy to know it's here.
 </Character>
 
@@ -294,7 +294,7 @@ When you're done, simply `exit` from your shell, or close your terminal. It'll
 not be available in your PATH anymore, and it'll be gone in the next
 [garbage collection](https://nix.dev/manual/nix/2.30/package-management/garbage-collection.html).
 
-<Character name="Carlos">What if I want to keep it installed?</Character>
+<Character name="Cuf">What if I want to keep it installed?</Character>
 
 Well, you could mess around with
 [profiles](https://nix.dev/manual/nix/2.30/package-management/profiles), but
@@ -366,7 +366,7 @@ Want to remove curl and add [httpie](https://httpie.io/)? Sure, here you go!
 }
 ```
 
-<Character name="Carlos">
+<Character name="Cuf">
   Wait, won't removing curl from my system break something? Isn't curl a
   dependency for a lot of stuff?
 </Character>
@@ -386,7 +386,7 @@ Have you ever wanted to run nodejs using musl instead of glibc? Or build an
 older version of curl using the current version of zlib? Or maybe you want to
 build openssh using an older (and vulnerable) version of openssl?
 
-<Character name="Carlos">
+<Character name="Cuf">
   No? What kind of psycho wants to do any of this?
 </Character>
 
