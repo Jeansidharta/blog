@@ -37,8 +37,8 @@ const fullName = charactersData[name].fullname;
 	div.root {
 		display: flex;
 		align-items: flex-start;
-		padding: 0 0 0 1rem;
-		gap: 8px;
+		padding: 1rem;
+		gap: 2rem;
 		border-radius: 16px;
 		border: 1px solid var(--background-lighter);
 		a {
@@ -53,11 +53,9 @@ const fullName = charactersData[name].fullname;
 			align-items: center;
 			width: 80px;
 		}
-		div.text-bubble {
-			border-radius: 16px;
-			/* border: 1px solid black; */
-			padding: 0 1rem 0 1rem;
-			/* background-color: var(--background-lighter); */
+		div.text-bubble p {
+			padding: 0;
+			margin: 0;
 		}
 	}
 </style>
