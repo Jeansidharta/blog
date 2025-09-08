@@ -1,21 +1,20 @@
 ---
-import type { CollectionEntry } from 'astro:content';
-import { type GitData } from '../content.config.ts';
-import BaseHead from '../components/BaseHead.astro';
-import FormattedDate from '../components/FormattedDate.astro';
-import Header from '../components/Header.astro';
+import type { CollectionEntry } from "astro:content";
+import { type GitData } from "../content.config.ts";
+import BaseHead from "../components/BaseHead.astro";
+import FormattedDate from "../components/FormattedDate.astro";
+import Header from "../components/Header.astro";
 
-type Props = CollectionEntry<'blog'>['data'] & GitData;
+type Props = CollectionEntry<"blog">["data"] & GitData;
 
-const { title, description, git} = Astro.props;
+const { title, description, git } = Astro.props;
 
-const {creation, updates} = git ?? { creation: null, updates: [] };
-
+const { creation, updates } = git ?? { creation: null, updates: [] };
 ---
 
 <html lang="en">
 	<head>
-		<BaseHead title={title} description={description} />
+		<BaseHead title={title} description={description || ""} />
 		<style>
 			main {
 				width: calc(100% - 2em);
@@ -54,17 +53,43 @@ const {creation, updates} = git ?? { creation: null, updates: [] };
 					<div class="title">
 						<h1>{title}</h1>
 						<div class="date">
-{ creation && <>Written on <a href={"https://github.com/Jeansidharta/blog/commit/" + creation.hash} referrerpolicy="no-referrer" target="_blank">
-								<FormattedDate date={creation.date} />
-							</a></>}
-							{updates.map(update => (
-								<div class="last-updated-on">
-								Updated on 
-								<a href={"https://github.com/Jeansidharta/blog/commit/" + update.hash} referrerpolicy="no-referrer" target="_blank">
-									<FormattedDate date={update.date} />
-								</a>: {update.message}
-								</div>
-							))}
+							{
+								creation && (
+									<>
+										Written on{" "}
+										<a
+											href={
+												"https://github.com/Jeansidharta/blog/commit/" +
+												creation.hash
+											}
+											referrerpolicy="no-referrer"
+											target="_blank"
+										>
+											<FormattedDate
+												date={creation.date}
+											/>
+										</a>
+									</>
+								)
+							}
+							{
+								updates.map((update) => (
+									<div class="last-updated-on">
+										Updated on
+										<a
+											href={
+												"https://github.com/Jeansidharta/blog/commit/" +
+												update.hash
+											}
+											referrerpolicy="no-referrer"
+											target="_blank"
+										>
+											<FormattedDate date={update.date} />
+										</a>
+										: {update.message}
+									</div>
+								))
+							}
 						</div>
 						<hr />
 					</div>

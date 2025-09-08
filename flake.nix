@@ -21,7 +21,7 @@
         };
       in
       {
-        devShell = pkgs.mkShell { buildInputs = with pkgs; [ nodejs ]; };
+        devShell = pkgs.mkShell { buildInputs = with pkgs; [ nodePackages_latest.nodejs ]; };
         packages.default = pkgs.runCommand "sidharta-blog" { } ''
           cp -r ${npmPackage}/website $out
         '';

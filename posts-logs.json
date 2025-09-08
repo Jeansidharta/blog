@@ -1,0 +1,67 @@
+{
+  "src/content/blog/cool-things-about-zig.draft.mdx": {
+    "creation": {
+      "hash": "61fda894245bf908d3050b4980ff8ad7f3abfd83",
+      "date": "2025-08-24T19:47:09.000Z",
+      "message": "Add git tracking to blog posts"
+    },
+    "updates": [
+      {
+        "hash": "aaf927b1210f2f6d9b5ee0673834fd3bdc78fe92",
+        "date": "2025-09-07T21:41:15.000Z",
+        "message": "Renamed Carlos to Cuf"
+      },
+      {
+        "hash": "e80c16284498b7360da359e363d30cee170e24f7",
+        "date": "2025-09-08T01:03:30.000Z",
+        "message": "Renamed Cuf to Cala"
+      }
+    ],
+    "path": "src/content/blog/cool-things-about-zig.draft.mdx"
+  },
+  "src/content/blog/deploying-software-with-nix.draft.mdx": {
+    "creation": {
+      "hash": "61fda894245bf908d3050b4980ff8ad7f3abfd83",
+      "date": "2025-08-24T19:47:09.000Z",
+      "message": "Add git tracking to blog posts"
+    },
+    "updates": [
+      {
+        "hash": "aaf927b1210f2f6d9b5ee0673834fd3bdc78fe92",
+        "date": "2025-09-07T21:41:15.000Z",
+        "message": "Renamed Carlos to Cuf"
+      },
+      {
+        "hash": "69d039c44cf3df1cfd19bef811ac766d8e79596a",
+        "date": "2025-09-07T22:04:58.000Z",
+        "message": "Renamed Development machine to dev machine, and deployment machine to server"
+      },
+      {
+        "hash": "e80c16284498b7360da359e363d30cee170e24f7",
+        "date": "2025-09-08T01:03:30.000Z",
+        "message": "Renamed Cuf to Cala"
+      }
+    ],
+    "path": "src/content/blog/deploying-software-with-nix.draft.mdx"
+  },
+  "src/content/blog/why-you-should-try-nix.mdx": {
+    "creation": {
+      "hash": "97df426785adf9447dd97b6477e41c027f3fca78",
+      "date": "2025-08-25T17:43:25.000Z",
+      "message": "Publish why-you-should-try-nix"
+    },
+    "updates": [
+      {
+        "hash": "aaf927b1210f2f6d9b5ee0673834fd3bdc78fe92",
+        "date": "2025-09-07T21:41:15.000Z",
+        "message": "Renamed Carlos to Cuf"
+      },
+      {
+        "hash": "e80c16284498b7360da359e363d30cee170e24f7",
+        "date": "2025-09-08T01:03:30.000Z",
+        "message": "Renamed Cuf to Cala"
+      }
+    ],
+    "path": "src/content/blog/why-you-should-try-nix.mdx"
+  }
+}
