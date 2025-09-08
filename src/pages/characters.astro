@@ -1,0 +1,88 @@
+---
+import { Image } from "astro:assets";
+import { characters } from "../characters.ts";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Characters of the pond</h1>
+			<p>
+				When reading blogs and articles, I always loved the little
+				characters they'd add to their writting. I found it adorable and
+				endearing, and really made the text more relaxing to read. So I
+				decided to incorporate that element into my own writing. My main
+				inspirations were
+				<a href="https://xeiaso.net/" rel="noopener">xeiaso.net</a> and
+				<a href="https://fasterthanli.me/">fasterthanli.me</a>.
+			</p>
+			<p>
+				The characters here are supposed to be caricatures of what
+				audience members might be. They should represent the stereotypes
+				of what other people in the tech world might think, such as the
+				curious and unknowledgeable student, the knowledgeable but
+				arrogant know-it-all, and the wise but stagnated old-timer.
+			</p>
+			<p>
+				Their art was made by me in <a
+					href="https://www.gimp.org/"
+					rel="noopener">Gimp</a
+				>. I'm a horrible graphic designer, so I traced them over
+				pictures of their real life counterparts. Their project files
+				can be found in the <a
+					href="https://github.com/Jeansidharta/blog/tree/main/gimp-files"
+					rel="noopener">blog's git repository</a
+				>. All animals go by they/them, as <a
+					href="https://nautil.us/no-animals-do-not-have-genders-237938/"
+					rel="noopener">animals have no gender</a
+				>
+			</p>
+			<h2 id={characters.Cuf.name}>
+				{characters.Cuf.fullname}
+			</h2>
+			<Image
+				alt={characters.Cuf.fullname}
+				width={256}
+				height={256}
+				src={characters.Cuf.image}
+			/>
+			<p>
+				Cuf is supposed to represent the reader that is learning
+				something new. They know just enough to follow allong, but not
+				enough so the article is useless for them. Their personality is
+				pretty generic, mostly just interested in learning more and
+				understanding the article. Their art was traced over <a
+					href="https://en.wikipedia.org/wiki/File:Hydrochoeris_hydrochaeris_in_Brazil_in_Petr%C3%B3polis,_Rio_de_Janeiro,_Brazil_09.jpg"
+					>this</a
+				> image
+			</p>
+			<h2 id={characters.Nelly.name}>
+				{characters.Nelly.fullname}
+			</h2>
+			<Image
+				alt={characters.Nelly.fullname}
+				width={256}
+				height={256}
+				src={characters.Nelly.image}
+			/>
+			<p>
+				Nelly already know a lot about everything. They spend their time
+				reading and studying about every single detail of every single
+				system. This means Nelly will usually recognize problems before
+				the article even points them out, and will suggest tools outside
+				of the scope of the current narrative. Their art was traced over <a
+					href="https://dothemath.ucsd.edu/2024/12/for-the-love-of-newts/"
+					>this</a
+				> image
+			</p>
+		</main>
+	</body>
+</html>
