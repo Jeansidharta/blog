@@ -46,7 +46,7 @@
   },
   "src/content/blog/why-should-try-nix.mdx": {
     "creation": {
-      "hash": "d15ee62d5cd46476c367b062cb16f7254487eea2",
+      "hash": "deb15b1e14463f4d79a0b6fb6ec08c8af7774d78",
       "date": "2025-09-08T02:18:02.000Z",
       "message": "Deploy why you should try nix"
     },
