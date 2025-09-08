@@ -1,16 +1,16 @@
-import CufImg from "./assets/Cuf.png";
+import CalaImg from "./assets/Cala.png";
 import NellyImg from "./assets/Nelly.png";
 
-export type CharacterName = "Cuf" | "Nelly";
+export type CharacterName = "Cala" | "Nelly";
 
 export const characters: Record<
 	CharacterName,
 	{ fullname: string; image: ImageMetadata; name: CharacterName }
 > = {
-	Cuf: {
-		fullname: "Cuf, the Curious Capybara",
-		name: "Cuf",
-		image: CufImg,
+	Cala: {
+		fullname: "Cala, the Curious Capybara",
+		name: "Cala",
+		image: CalaImg,
 	},
 	Nelly: {
 		fullname: "Nelly, the Nerdy Newt",
