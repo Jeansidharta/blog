@@ -1,9 +1,9 @@
 ---
-import {Image} from 'astro:assets';
-import BaseHead from '../components/BaseHead.astro';
-import Header from '../components/Header.astro';
-import PingPond from '../assets/pingpond-inverted.png';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { Image } from "astro:assets";
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import PingPond from "../assets/pingpond-inverted.png";
+import { SITE_DESCRIPTION, SITE_TITLE } from "../consts";
 ---
 
 <!doctype html>
@@ -14,25 +14,41 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<Image alt="Ping Pond Logo" src={PingPond} width={600} height={200}/>
+			<Image
+				alt="Ping Pond Logo"
+				src={PingPond}
+				width={600}
+				height={200}
+			/>
 			<p>
-				Welcome to my blog! This is where I write about my ideas, latest projects,
-				and things that I recently learned about. After learning so many things through
-				other people's blogs, I finally decided to create my own, as a way to give back
-				to the tech community that I've relied so heavily on.
+				Welcome to my blog! This is where I write about my ideas, latest
+				projects, and things that I recently learned about. After
+				learning so many things through other people's blogs, I finally
+				decided to create my own, as a way to give back to the tech
+				community that I've relied so heavily on.
 			</p>
 			<p>
-				If you find any issues, you can open a new issue on this blog's repository:
-				<a href="https://github.com/Jeansidharta/blog" referrerpolicy="no-referrer">github.com/Jeansidharta/blog</a>
-				or email me at <a href="mailto:jeansidharta@gmail.com">jeansidharta@gmail.com</a>
+				If you find any issues, you can open a new issue on this blog's
+				repository:
+				<a
+					href="https://github.com/Jeansidharta/blog"
+					referrerpolicy="no-referrer"
+					rel="noopener">github.com/Jeansidharta/blog</a
+				>
+				or email me at <a href="mailto:jeansidharta@gmail.com"
+					>jeansidharta@gmail.com</a
+				>
 			</p>
 			<p>
-				The basic idea of this blog is to share some of my ideas and some of the things
-				I've been recently learning about. The format of a post is to write from my own point
-				of view, as some sort of narrator, and to have audience members, represented by animals,
-				interacting and responding to the text. The animals are intended to be caricatures
-				of people; stereotypes of different possible audience members. They're my predictions
-				of what the audience migh be currently thinking, and gives me an opportuinity to respond.
+				The basic idea of this blog is to share some of my ideas and
+				some of the things I've been recently learning about. The format
+				of a post is to write from my own point of view, as some sort of
+				narrator, and to have audience members, represented by animals,
+				interacting and responding to the text. The animals are intended
+				to be caricatures of people; stereotypes of different possible
+				audience members. They're my predictions of what the audience
+				migh be currently thinking, and gives me an opportuinity to
+				respond.
 			</p>
 		</main>
 	</body>
