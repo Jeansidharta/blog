@@ -50,7 +50,13 @@
       "date": "2025-09-08T02:18:02.000Z",
       "message": "Deploy why you should try nix"
     },
-    "updates": [],
+    "updates": [
+      {
+        "hash": "cd784de4af9170afbb9b949d3c10d8b628d03a4e",
+        "date": "2025-09-08T02:57:28.000Z",
+        "message": "Fix nix syntax bug"
+      }
+    ],
     "path": "src/content/blog/why-should-try-nix.mdx"
   }
 }
