@@ -1,0 +1,163 @@
+---
+title: "Quest for a decent personal VPN"
+description: "sdfkjsdkfkj"
+pubDate: "Nov 10 2025"
+---
+
+import Character from "../../components/markdown/character.astro";
+import Sparkle from "../../components/markdown/sparkle.astro";
+
+I have a server, a personal computer, a laptop, a phone, and a small embedded
+device. I want to connect them all to each other, no matter where they are in
+the world (although they most probably will be in my house). If I'm sitting at a
+café with my laptop connected to the public wi-fi, I want to be able to access
+my private instance of my password manager, and look at my photos hosted on my
+server.
+
+<Character name="Cala">
+  But what about them hackers? Won't exposing these services to the internet be
+  like an open invitation for them to mess up your stuff?
+</Character>
+
+Yes. And this is what this article will try to answer: how to expose these
+services to my own devices, but stop any other device? And what if I want to
+share them with someone else? And what if I want to share just a small
+collection of services, instead of all of them?
+
+## Some things I've considered
+
+I have spent some time thinking about this problem, and have iterated over some
+idea. Here's a small collection of them in quick succession:
+
+### **per-service login**
+
+So, the first idea I had is to just rely on service-based authentication. That
+means every service will have a login page, and I have to type in my
+username/password to use it (or use my password manager). If I want to share
+that service with someone else, I'd just create an account for them. I would
+then just open the service to the internet, exposing a TCP port on my home
+router.
+
+<Character name="Cala">
+  Simple and easy to understand.
+  [KISS](https://en.wikipedia.org/wiki/KISS_principle), right?
+</Character>
+
+It's conceptually simple, but it's just bad. I'd be trusting that every service
+I host has a secure authentication implementation; that is, if it even has one.
+Otherwise I'd probably have to rely on
+[Basic HTTP Auth](https://developer.mozilla.org/en-US/docs/Web/HTTP/Guides/Authentication).
+I'd then have to manage my credentials to all of these services; though my
+password manager would do most of the work, it's still annoying. And then, I'd
+also have to rely that my guest users with whom I share my network with won't
+create a 6-character password that's easily brute-forceable.
+
+### SSH Tunnels
+
+It was clear I had to separate authentication from the actual services. It's a
+separate issue, that should be solved on a layer of its own, and I first chose
+SSH as that layer. Almost all computers either have SSH already, or have an easy
+way to download it, so it should be relatively easy for guests to access them. I
+could also use SSH's keys and unix users as a form of authentcation (e.g. person
+X has this key, and can only ssh to account Y, which has access to services Z);
+plus, SSH keys means <Sparkle>no passwords!</Sparkle>
+
+[OpenSSH](https://www.openssh.org/)'s implementation is able to tunnel a TCP
+(and maybe UDP? I didn't check) port between two computers.
+`ssh -L 8000:localhost:80 target@domain.tld` creates a client-side socket
+listening on port 8000, that forwards anything it receives to the server-side
+port 80. As long as I had a way to SSH into my server, I could just create
+multiple tunnels to my services.
+
+<Character name="Cala">
+  It's crude, but could work? With enough scripts it could be painless to manage
+  services/guests.
+</Character>
+
+Well, the fatal flaw of this solution is that we're embedding a TCP connection
+into another TCP connection. This means double the SYNs, double the ACKs, and
+two sliding transmission windows. It also makes the whole thing susceptible to
+[TCP meltdown](https://www.youtube.com/watch?v=AAssk2N_oPk) (not fun). It's also
+honestly cumbersome to manage SSH keys, linux users, permissions, and any
+routing needed if the service is hosted in another machine. But it's a step
+closer in the right direction! I'd prefer this a thousand times over per-service
+auth.
+
+### IPSec
+
+After reading a bit about what I was trying to do, I realized I was trying to
+implement a VPN (Virtual Private Network). After reading a bit more about VPNs,
+I decided to try [IPSec](https://en.wikipedia.org/wiki/IPsec), which sees to be
+able to connect computers and subnets through an encrypted and authenticated IP
+layer. It also seems to have built-in support on most devices, including my
+personal android phone and my home router. It also has support for Pre-shared
+key authentication, and
+[X.509 certificates (TLS certs)](https://en.wikipedia.org/wiki/X.509)
+authentication, which means I could install a user certificate on my devices and
+I wouldn't have to type in my password every time.
+
+<Character name="Cala">
+  Sounds like it's everything you need. Feature-complete, and can properly
+  handle encryption and auth.
+</Character>
+
+The problem is how complicated it is. Jesus christ, I spent multiple hours
+reading about the whole thing to have an idea of how it works, and I never
+managed to properly configure it on my own (though I didn't try much). The RFCs
+are gigantic, the [StrongSwan](https://strongswan.org/)'s documentation is
+enormous, and my brain is pea-sized. I might try this one again with a clearer
+mind in the future, but it'll stay unused for now.
+
+<Character name="Cala">Can nothing satisfy you? Pick one already!</Character>
+
+## <Sparkle>Wireguard</Sparkle>
+
+After my previous failures, I decided to see what other people were using as a
+VPN. There were many names mentioned, but one that caught my attention was
+[Wireguard](https://www.wireguard.com/). It's supposed to create an encrypted IP
+layer between nodes, each with its own private/public key (kinda like SSH). When
+sending a packet to a node, it's encrypted using that node's public key, which
+allows the node to decrypt it using its private key. Wireguard creates a special
+[Virtual Network Interface](https://en.wikipedia.org/wiki/Virtual_network_interface)
+that can be controlled using standard linux tools, like
+[iproute2](https://wiki.linuxfoundation.org/networking/iproute2). That also
+means packets can be routed from/to that interface, using standard linux routing
+mechanisms. And the best part? Incredibly easy to configure. You create the
+interface, add a private key to it, add the public keys of the peers you want to
+be able to communicate with, and Bam! You're good to go.
+
+The underlying transport protocol is UDP based, with no retransmission logic,
+which avoids the previously mentioned TPC Meltdown problem. It also doesn't care
+what your source IP address is, as long as it encrypts/decrypts with the correct
+keys, which makes connection breaking due to IP roaming (changing your IP
+address by changing networks, e.g. wifi to cellular) a painless problem of the
+past. And the best part: it's silent by default; that is, if the client sends a
+message with the wrong encrytion to another client, that other client won't
+respond with anything, not even an error message. This means an outsider cannot
+[port scan](https://en.wikipedia.org/wiki/Port_scanner) your device for
+Wireguard processes.
+
+<Character name="Cala">
+  Okay, but what about that whole authentication thing? And the whole guest
+  thing? Wireguard seems to be too simple to handle all of that.
+</Character>
+
+And that is part of the beauty! Wireguard is **very simple**. It only handles
+encryption: it ensures that the clients with the right key can communicate with
+it. Which means we can build authentication and user permissions on top of it.
+Very [unix fashion](https://en.wikipedia.org/wiki/Unix_philosophy). Now, we just
+gotta figure out what to use on top of it.
+
+## On top of wireguard
+
+There are two really annoying things about Wireguard:
+
+1. **Key distribution**: If you want two peers to talk to each other, you need
+   to find a way for them to get each other's keys. This is not a problem if you
+   have a small number of devices that don't change often, but for larger
+   networks with devices that are constantly connecting/disconnecting from the
+   network, this is really annoying.
+
+There are
+[a lot of tools built on top of wireguard](https://github.com/cedrickchee/awesome-wireguard).
+The most famous one is, by far, [Tailscale](https://tailscale.com/).

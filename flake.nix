@@ -17,14 +17,25 @@
           pname = "sidharta-blog";
           version = "0.0.1";
           src = ./.;
-          npmDepsHash = "sha256-BWZCER5BL7ZaHfXFhO1f7ta1np4hoEv91RWhw1XVlS4=";
+          npmDepsHash = "sha256-/Qrn/hUlXUeGzseOLbrXaOqjAHolSJFFCcV5uk4tqUg=";
         };
+        website = pkgs.runCommand "sidharta-blog" { } ''
+          cp -r ${npmPackage}/website $out
+        '';
       in
       {
         devShell = pkgs.mkShell { buildInputs = with pkgs; [ nodePackages_latest.nodejs ]; };
-        packages.default = pkgs.runCommand "sidharta-blog" { } ''
-          cp -r ${npmPackage}/website $out
-        '';
+        packages.default = website;
+        packages.docker = pkgs.dockerTools.buildLayeredImage {
+          name = "sidharta-blog";
+          tag = "latest";
+          contents = [
+            pkgs.pkgsStatic.darkhttpd
+          ];
+          extraCommands = ''
+            ln -s ${website} blog
+          '';
+        };
       }
     );
 }

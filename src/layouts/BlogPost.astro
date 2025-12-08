@@ -73,7 +73,7 @@ const { creation, updates } = git ?? { creation: null, updates: [] };
 								)
 							}
 							{
-								updates.map((update) => (
+								updates?.map((update) => (
 									<div class="last-updated-on">
 										Updated on
 										<a
