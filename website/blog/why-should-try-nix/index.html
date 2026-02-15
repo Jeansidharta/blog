@@ -1,0 +1,332 @@
+<!DOCTYPE html><html lang="en" data-astro-cid-bvzihdzo> <head><!-- Global Metadata --><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/png" href="/favicon.png"><link rel="sitemap" href="/sitemap-index.xml"><link rel="alternate" type="application/rss+xml" title="Ping Pond" href="https://example.com/rss.xml"><meta name="generator" content="Astro v5.16.8"><!-- Font preloads --><link rel="preload" href="/fonts/atkinson-regular.woff" as="font" type="font/woff" crossorigin><link rel="preload" href="/fonts/atkinson-bold.woff" as="font" type="font/woff" crossorigin><!-- Canonical URL --><link rel="canonical" href="https://example.com/blog/why-should-try-nix/"><!-- Primary Meta Tags --><title>Why you should try Nix</title><meta name="title" content="Why you should try Nix"><meta name="description" content="A few reasons why you might want to learn Nix"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://example.com/blog/why-should-try-nix/"><meta property="og:title" content="Why you should try Nix"><meta property="og:description" content="A few reasons why you might want to learn Nix"><meta property="og:image" content="https://example.com/_astro/blog-placeholder-1.Bx0Zcyzv.jpg"><!-- Twitter --><meta property="twitter:card" content="summary_large_image"><meta property="twitter:url" content="https://example.com/blog/why-should-try-nix/"><meta property="twitter:title" content="Why you should try Nix"><meta property="twitter:description" content="A few reasons why you might want to learn Nix"><meta property="twitter:image" content="https://example.com/_astro/blog-placeholder-1.Bx0Zcyzv.jpg"><style>:root{--accent: #2337ff;--accent-dark: #000d8a;--primary: #00dee6;--secondary: #12de00;--background: #0a0814;--text: white;--white: #fafafa;--text-darker: #808080;--background-lighter: #161433;--black: 15, 18, 25;--gray: 96, 115, 159;--gray-light: 229, 233, 240;--gray-dark: 34, 41, 57;--gray-gradient: rgba(var(--gray-light), 50%), #fff;--box-shadow: 0 2px 6px rgba(var(--gray), 25%), 0 8px 24px rgba(var(--gray), 33%), 0 16px 32px rgba(var(--gray), 33%)}@font-face{font-family:Atkinson;src:url(/fonts/atkinson-regular.woff) format("woff");font-weight:400;font-style:normal;font-display:swap}@font-face{font-family:Atkinson;src:url(/fonts/atkinson-bold.woff) format("woff");font-weight:700;font-style:normal;font-display:swap}body{font-family:Atkinson,sans-serif;margin:0;padding:0;text-align:left;background:var(--background);background-size:100% 600px;word-wrap:break-word;overflow-wrap:break-word;color:var(--text);font-size:20px;line-height:1.7}main{width:720px;max-width:calc(100% - 2em);margin:auto;padding:3em 1em}h1,h2,h3,h4,h5,h6{margin:2rem 0;line-height:1.2;color:var(--primary)}h1{font-size:3em}h2{font-size:1.8em}h3{font-size:1.6em}h4{font-size:1.2em}h5{font-size:1em}strong,b{font-weight:700}a,a:hover{color:var(--secondary)}p{margin-bottom:1em}.prose p{margin-bottom:2em}textarea{width:100%;font-size:16px}input{font-size:16px}table{width:100%}img{max-width:100%;height:auto;border-radius:8px}code{padding:2px 5px;background-color:var(--background-lighter);border-radius:2px}pre{padding:1.5em;border-radius:8px}pre>code{all:unset}blockquote{border-left:4px solid var(--secondary);padding:0 0 0 20px;margin:0;font-size:1.333em}hr{border:none;border-top:1px solid var(--primary)}@media (max-width: 720px){body{font-size:18px}main{padding:1em}}.js-off .js-only{display:none!important}.sr-only{border:0;padding:0;margin:0;position:absolute!important;height:1px;width:1px;overflow:hidden;clip:rect(1px 1px 1px 1px);clip:rect(1px,1px,1px,1px);clip-path:inset(50%);white-space:nowrap}a[data-astro-cid-eimmu3lg]{display:inline-block;text-decoration:none}a[data-astro-cid-eimmu3lg].active{font-weight:bolder;text-decoration:underline}header[data-astro-cid-3ef6ksr2]{margin:0;padding:0 1em;background:var(--background-lighter);box-shadow:0 2px 8px rgba(var(--black),5%)}h2[data-astro-cid-3ef6ksr2]{margin:0;font-size:1em}h2[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2],h2[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active{text-decoration:none}nav[data-astro-cid-3ef6ksr2]{display:flex;align-items:center;justify-content:space-between}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{padding:1em .5em;color:var(--black);border-bottom:4px solid transparent;text-decoration:none}nav[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2].active{text-decoration:none;border-bottom-color:var(--primary)}.social-links[data-astro-cid-3ef6ksr2],.social-links[data-astro-cid-3ef6ksr2] a[data-astro-cid-3ef6ksr2]{display:flex}@media (max-width: 720px){.social-links[data-astro-cid-3ef6ksr2]{display:none}}
+main[data-astro-cid-bvzihdzo]{width:calc(100% - 2em);max-width:100%;margin:0}.prose[data-astro-cid-bvzihdzo]{width:720px;max-width:calc(100% - 2em);margin:auto;padding:1em}.title[data-astro-cid-bvzihdzo]{margin-bottom:1em;padding:1em 0;line-height:1}.title[data-astro-cid-bvzihdzo] h1[data-astro-cid-bvzihdzo]{margin:0 0 .5em}.date[data-astro-cid-bvzihdzo]{margin-bottom:.5em;color:var(--text-darker)}.last-updated-on[data-astro-cid-bvzihdzo]{font-style:italic}
+</style><style>div[data-astro-cid-csoa7wig].root{display:flex;align-items:flex-start;padding:1rem;gap:2rem;border-radius:16px;border:1px solid var(--background-lighter);a{text-decoration:none}div.portrait{border-radius:16px;display:flex;flex-direction:column;flex-shrink:0;align-items:center;width:80px}div.text-bubble p{padding:0;margin:0}}
+</style></head> <body class="js-off" data-astro-cid-bvzihdzo> <script type="text/javascript">
+            document.body.className = document.body.className.replace('js-off','js-on');
+        </script> <header data-astro-cid-3ef6ksr2> <nav data-astro-cid-3ef6ksr2> <h2 data-astro-cid-3ef6ksr2> <a href="/" data-astro-cid-3ef6ksr2> <img src="/_astro/pingpond-inverted.B2VZo7P6_Zr3TJr.webp" alt="Ping Pond Logo" data-astro-cid-3ef6ksr2="true" loading="lazy" decoding="async" fetchpriority="auto" width="148" height="40"> </a> </h2> <div class="internal-links" data-astro-cid-3ef6ksr2> <a href="/" data-astro-cid-3ef6ksr2="true" data-astro-cid-eimmu3lg> Home </a>  <a href="/blog" class="active" data-astro-cid-3ef6ksr2="true" data-astro-cid-eimmu3lg> Blog </a>  </div> <div class="social-links" data-astro-cid-3ef6ksr2> <a href="https://github.com/jeansidharta" target="_blank" referrerpolicy="no-referrer" data-astro-cid-3ef6ksr2> <svg viewBox="0 0 16 16" aria-hidden="true" width="32" height="32" data-astro-cid-3ef6ksr2><path fill="currentColor" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z" data-astro-cid-3ef6ksr2></path></svg> </a> </div> </nav> </header>  <main data-astro-cid-bvzihdzo> <article data-astro-cid-bvzihdzo> <div class="prose" data-astro-cid-bvzihdzo> <div class="title" data-astro-cid-bvzihdzo> <h1 data-astro-cid-bvzihdzo>Why you should try Nix</h1> <div class="date" data-astro-cid-bvzihdzo> 
+Written on <a href="https://github.com/Jeansidharta/blog/commit/deb15b1e14463f4d79a0b6fb6ec08c8af7774d78" referrerpolicy="no-referrer" target="_blank" data-astro-cid-bvzihdzo> <time datetime="2025-09-08T02:18:02.000Z"> Sep 7, 2025 </time> </a>  <div class="last-updated-on" data-astro-cid-bvzihdzo>
+Updated on
+<a href="https://github.com/Jeansidharta/blog/commit/cd784de4af9170afbb9b949d3c10d8b628d03a4e" referrerpolicy="no-referrer" target="_blank" data-astro-cid-bvzihdzo> <time datetime="2025-09-08T02:57:28.000Z"> Sep 7, 2025 </time> </a>
+: Fix nix syntax bug </div> </div> <hr data-astro-cid-bvzihdzo> </div>  <p>So, you clicked on a Nix article, eh? That means you’re either completely lost,
+or is a huge tech nerd like me. Either way, you’re definitely welcome here. As
+the title suggests, I’ll do my best to try and convince you to give Nix a
+chance, and explore the endless possibilities it can give you. Whether you’ve
+never heard of it, or already are Nix-curious and waiting for an oportunity to
+start learning, this is for you.</p>
+<div class="root" data-astro-cid-csoa7wig> <a href="/characters#Cala" data-astro-cid-csoa7wig> <div class="portrait" data-astro-cid-csoa7wig> <img src="/_astro/Cala.CGIMVdea_n7Q2L.webp" alt="Cala, the Curious Capybara says:" title="Cala, the Curious Capybara" data-astro-cid-csoa7wig="true" loading="lazy" decoding="async" fetchpriority="auto" width="80" height="80"> Cala </div> </a> <div class="text-bubble" data-astro-cid-csoa7wig> <p>I’ve heard about this Nix thing from a few friends, but never quite understood
+the hype.</p> </div> </div> 
+<p>Perfect! I’ll do my best to tell you why you might want to give it a go.</p>
+<div class="root" data-astro-cid-csoa7wig> <a href="/characters#Nelly" data-astro-cid-csoa7wig> <div class="portrait" data-astro-cid-csoa7wig> <img src="/_astro/Nelly.D93W8n_k_UdL9E.webp" alt="Nelly, the Nerdy Newt says:" title="Nelly, the Nerdy Newt" data-astro-cid-csoa7wig="true" loading="lazy" decoding="async" fetchpriority="auto" width="80" height="80"> Nelly </div> </a> <div class="text-bubble" data-astro-cid-csoa7wig> <p>Oh, me? I already am using Nix. I’ve even developed a new implementation for a
+flake-based configuration where—</p> </div> </div> 
+<p>Well, then you could follow along for the possibility of spotting and correcting
+my dumb mistakes, or you could share this with someone you’re trying to convince
+to use Nix, but there will probably be little learning for you here. Anyway,
+send me the coolest Nix-related thing you know of.</p>
+<p>I just need to make this clear: this is <strong>not</strong> a Nix tutorial, it’s more like a
+sales pitch. I won’t be teaching you how to use Nix in a meaningful way, I’ll
+just show you enough so you’ll want to learn it yourself. If you actually want a
+Nix tutorial, you can go to the
+<a href="https://nix.dev/tutorials/first-steps/">official docs</a> for a comprehensive
+starting point, to <a href="https://nixos.org/guides/nix-pills/">Nix pills</a> to learn
+about how it all works, or to <a href="https://zero-to-nix.com/">Zero to Nix</a> for an
+easily digestible starting point for a total newbie.</p>
+<p>Also, I’m mostly talking about Nix, the package manager, not just the linux
+distribution, NixOS.
+<a href="https://nixos.org/download/">You can try Nix on most popular distributions right now</a>.</p>
+<h2 id="first-the-why">First, the why</h2>
+<p>“Why would I spend so much time learning about such an esoteric tool? What value
+does it bring me?” you may ask. First, let me describe a few software-related
+nightmares before I can show you how Nix can banish them:</p>
+<p>You’re trying to use an older piece of software. Something that’s been written
+in the dark ages of Node 8 or Python 2, or maybe it’s just been a week and one
+of its dependencies already released a breaking change that blows everything up.
+Either way, you want to use that software no matter what, and more power to you
+for doing so. But those specific versions of its runtime dependencies are no
+longer available on your package manager’s repositories. You might want to try
+downgrading them, but there’s a non-zero chance that’ll break the rest of your
+system. So you decide your best chance is to build them from source. But the
+dependencies’ dependencies are also not up to date, so you’d have to build those
+from source too, and then—</p>
+<div class="root" data-astro-cid-csoa7wig> <a href="/characters#Cala" data-astro-cid-csoa7wig> <div class="portrait" data-astro-cid-csoa7wig> <img src="/_astro/Cala.CGIMVdea_n7Q2L.webp" alt="Cala, the Curious Capybara says:" title="Cala, the Curious Capybara" data-astro-cid-csoa7wig="true" loading="lazy" decoding="async" fetchpriority="auto" width="80" height="80"> Cala </div> </a> <div class="text-bubble" data-astro-cid-csoa7wig> Enough. Just end me already. </div> </div> 
+<p>We don’t have to live in dependency hell. Nix can fix that!</p>
+<p>Here’s another scenario: you’re a developer writing a piece of software that has
+many specific dependencies, and you want not only to properly document them, but
+to provide a quick and easy development environment for other contributors. You
+then decide to write a section in the README describing which versions of what
+dependencies are required, and if you’re feeling generous, you might even
+document the package names of those dependencies on the most popular distros.
+But at the end of the day, it’s an exercise to the reader to get everything
+correct with the right version on their system.</p>
+<div class="root" data-astro-cid-csoa7wig> <a href="/characters#Cala" data-astro-cid-csoa7wig> <div class="portrait" data-astro-cid-csoa7wig> <img src="/_astro/Cala.CGIMVdea_n7Q2L.webp" alt="Cala, the Curious Capybara says:" title="Cala, the Curious Capybara" data-astro-cid-csoa7wig="true" loading="lazy" decoding="async" fetchpriority="auto" width="80" height="80"> Cala </div> </a> <div class="text-bubble" data-astro-cid-csoa7wig> <p>Sudenly, my desire to contribute to the project has completely vanished…</p> </div> </div> 
+<p>Fear not! There is a better way! With Nix!</p>
+<p>A third scenario, if you’re still not hooked: You’re an enthusiast who loves
+trying out new software. You’re constantly installing, configuring, tweaking…
+but you keep forgetting what you last used, or what last configuration worked
+well with it, or to delete software that you’re not using anymore, or to…</p>
+<div class="root" data-astro-cid-csoa7wig> <a href="/characters#Cala" data-astro-cid-csoa7wig> <div class="portrait" data-astro-cid-csoa7wig> <img src="/_astro/Cala.CGIMVdea_n7Q2L.webp" alt="Cala, the Curious Capybara says:" title="Cala, the Curious Capybara" data-astro-cid-csoa7wig="true" loading="lazy" decoding="async" fetchpriority="auto" width="80" height="80"> Cala </div> </a> <div class="text-bubble" data-astro-cid-csoa7wig> <p>What was that last line I had to add to /etc/fstab to make my flash drive
+auto-mount again?</p> </div> </div> 
+<p>Well, as you might guess… Nix can fix that!</p>
+<h2 id="okay-im-interested-but-what-is-this-nix">Okay, I’m interested… But what is this Nix?</h2>
+<p>Nix is, fundamentally, a build tool. In its most absolutely basic form, You’d
+write derivations, which are a special kind of Nix object that has all the
+necessary instructions and dependencies to build some piece of software. A
+derivation is, usually, just a bash script that invokes some tools (such as
+<code>gcc</code>, <code>cargo build</code>, or anything like that) on some source code. The action of
+building a derivation is to execute these instructions to generate the built
+software.</p>
+<div class="root" data-astro-cid-csoa7wig> <a href="/characters#Cala" data-astro-cid-csoa7wig> <div class="portrait" data-astro-cid-csoa7wig> <img src="/_astro/Cala.CGIMVdea_n7Q2L.webp" alt="Cala, the Curious Capybara says:" title="Cala, the Curious Capybara" data-astro-cid-csoa7wig="true" loading="lazy" decoding="async" fetchpriority="auto" width="80" height="80"> Cala </div> </a> <div class="text-bubble" data-astro-cid-csoa7wig> <p>Wait, so Nix just calls a bash script to build my stuff? How is that better
+than just using the script myself?</p> </div> </div> 
+<p>Well, Nix builds stuff in a deterministic way
+(<a href="https://linderud.dev/blog/nixos-is-not-reproducible/">not really</a>, but it is
+in all the ways that matter for this article). It takes in some inputs, hashes
+them, and uses that hash to generate an output directory. If anything about the
+inputs change — anything at all — the output directory will also change. This
+means that, for every unique set of inputs, there will be a unique output
+directory.</p>
+<p>An input is anything that is needed to build your code, including the source
+code, build tools, build commands, dependencies, and even the name and version
+you give your package. If any of these change, the hash will change, and you’ll
+get a whole new build in a new directory.</p>
+<div class="root" data-astro-cid-csoa7wig> <a href="/characters#Cala" data-astro-cid-csoa7wig> <div class="portrait" data-astro-cid-csoa7wig> <img src="/_astro/Cala.CGIMVdea_n7Q2L.webp" alt="Cala, the Curious Capybara says:" title="Cala, the Curious Capybara" data-astro-cid-csoa7wig="true" loading="lazy" decoding="async" fetchpriority="auto" width="80" height="80"> Cala </div> </a> <div class="text-bubble" data-astro-cid-csoa7wig> <p>Okay, so, if I understand it correctly, you tell Nix how to build your
+package, and it’ll build it in a unique directory. This still kinda sounds
+like a regular package manager. How does this help to solve the problems we
+were discussing earlier?</p> </div> </div> 
+<p>Let’s take, as an example, the first problem we raised: we’re trying to run a
+piece of software (Let’s call it Foo) that needs a specific version of its
+runner (E.g. Node 8). Since Nix uses the source code in the output directory
+hash, Node 8 will be built in a different directory from Node 12, or Node 16, or
+any other version. We can, then, tell Nix to use Node 8 for just building Foo,
+and use the latest version of Node for the rest of the system. Those two
+versions of Node can coexist on the same system without conflict.</p>
+<p>Since the list of dependencies is also part of the hash, we could even build Foo
+with different versions of its dependencies. You could build one version with
+Node 12, another with Node 18, and yet another with Node 22. They would all live
+in different output directories, without any conflict. You could, for a real
+world example, try building curl with Musl instead of Glibc, or build wget with
+an older version of openssl to test some vulnerabilities. These frankenstein
+versions of the packages would have their own separate directories, and could be
+used independently from their regular versions. Try doing that in a regular
+package manager. I dare you.</p>
+<h2 id="solving-our-problems-with-nix">Solving our problems with Nix</h2>
+<div class="root" data-astro-cid-csoa7wig> <a href="/characters#Cala" data-astro-cid-csoa7wig> <div class="portrait" data-astro-cid-csoa7wig> <img src="/_astro/Cala.CGIMVdea_n7Q2L.webp" alt="Cala, the Curious Capybara says:" title="Cala, the Curious Capybara" data-astro-cid-csoa7wig="true" loading="lazy" decoding="async" fetchpriority="auto" width="80" height="80"> Cala </div> </a> <div class="text-bubble" data-astro-cid-csoa7wig> <p>Okay, so Nix is a fancy build tool to build software. We already have loads of
+those. How is Nix better? And how can it solve so many problems?</p> </div> </div> 
+<p>When all you have is a hammer, all your problems turn into nails. The trick is
+to realize that a lot of problems can be boiled down to what built tools already
+do best.</p>
+<p>We already explored how Nix can help us build multiple versions of the same
+software. That wasn’t incredibly exciting, since it’s what we expect to be
+within the realm of possibilities of a build, but here’s how Nix can help us
+solve the other problems that were brought up at the start of this article:</p>
+<h3 id="running-older-software">Running older software</h3>
+<p><a href="https://github.com/NixOS/nixpkgs">nixpkgs</a> is Nix’s largest package repository,
+maintained by the Nix team themselves. It has derivations for most software out
+there. The nice thing about it is that it’s a github repository, which means we
+can access older versions of it. Running older versions of software, then, is
+just a matter of figuring out what commit of nixpkgs has that version.
+<a href="https://www.nixhub.io/">nixhub.io</a> is a website exclusively dedicated to that
+purpose. For example, commit
+<a href="https://github.com/NixOS/nixpkgs/tree/d6d07f262b171bb1e415e1a06c52288af056a98d">d6d07f2</a>
+has <a href="https://www.sqlite.org/">sqlite</a> version 3.31.1 and commit
+<a href="https://github.com/NixOS/nixpkgs/tree/e912fb83d2155a393e7146da98cda0e455a80fb6">e912fb8</a>
+has <a href="https://github.com/jesseduffield/lazygit">lazygit</a> version 0.20.4</p>
+<p>So, as an example, running curl version 7.81.0 (which was released January 2022)
+would be simply a matter of running:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="sh"><code><span class="line"><span style="color:#B392F0">$</span><span style="color:#9ECBFF"> nix</span><span style="color:#9ECBFF"> run</span><span style="color:#9ECBFF"> github:nixos/nixpkgs/98bb5b77c8c6666824a4c13d23befa1e07210ef1#curl</span><span style="color:#79B8FF"> --</span><span style="color:#79B8FF"> --version</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#B392F0">curl</span><span style="color:#79B8FF"> 7.81.0</span><span style="color:#E1E4E8"> (x86_64-pc-linux-gnu) libcurl/7.81.0 OpenSSL/1.1.1m zlib/1.2.11 brotli/1.0.9 zstd/1.5.1 libidn2/2.3.2 libssh2/1.10.0 nghttp2/1.43.0</span></span>
+<span class="line"><span style="color:#B392F0">Release-Date:</span><span style="color:#9ECBFF"> 2022-01-05</span></span>
+<span class="line"><span style="color:#B392F0">Protocols:</span><span style="color:#9ECBFF"> dict</span><span style="color:#9ECBFF"> file</span><span style="color:#9ECBFF"> ftp</span><span style="color:#9ECBFF"> ftps</span><span style="color:#9ECBFF"> gopher</span><span style="color:#9ECBFF"> gophers</span><span style="color:#9ECBFF"> http</span><span style="color:#9ECBFF"> https</span><span style="color:#9ECBFF"> imap</span><span style="color:#9ECBFF"> imaps</span><span style="color:#9ECBFF"> mqtt</span><span style="color:#9ECBFF"> pop3</span><span style="color:#9ECBFF"> pop3s</span><span style="color:#9ECBFF"> rtsp</span><span style="color:#9ECBFF"> scp</span><span style="color:#9ECBFF"> sftp</span><span style="color:#9ECBFF"> smb</span><span style="color:#9ECBFF"> smbs</span><span style="color:#9ECBFF"> smtp</span><span style="color:#9ECBFF"> smtps</span><span style="color:#9ECBFF"> telnet</span><span style="color:#9ECBFF"> tftp</span></span>
+<span class="line"><span style="color:#B392F0">Features:</span><span style="color:#9ECBFF"> alt-svc</span><span style="color:#9ECBFF"> AsynchDNS</span><span style="color:#9ECBFF"> brotli</span><span style="color:#9ECBFF"> GSS-API</span><span style="color:#9ECBFF"> HSTS</span><span style="color:#9ECBFF"> HTTP2</span><span style="color:#9ECBFF"> HTTPS-proxy</span><span style="color:#9ECBFF"> IDN</span><span style="color:#9ECBFF"> IPv6</span><span style="color:#9ECBFF"> Kerberos</span><span style="color:#9ECBFF"> Largefile</span><span style="color:#9ECBFF"> libz</span><span style="color:#9ECBFF"> NTLM</span><span style="color:#9ECBFF"> NTLM_WB</span><span style="color:#9ECBFF"> SPNEGO</span><span style="color:#9ECBFF"> SSL</span><span style="color:#9ECBFF"> TLS-SRP</span><span style="color:#9ECBFF"> UnixSockets</span><span style="color:#9ECBFF"> zstd</span></span></code></pre>
+<p>If the software you’re trying to run is not on nixpkgs, and requires very
+specific versions of its dependencies, you can just pull these versions from
+nixpkgs and manually build the software. You could even write your own
+derivation for it, which would automate the build process.</p>
+<h3 id="providing-a-quick-and-easy-development-environment-for-writing-software">Providing a quick and easy development environment for writing software</h3>
+<p>Your development environment is, at the end of the day, a Bash shell with some
+environment variables set (The <code>PATH</code> in particular). Setting up that
+environment, then, is just a matter of building a script that puts you into a
+shell with those variables set.</p>
+<p>This is essentially just writing a script that modifies the appropriate
+variables and calls another instance of bash with those new variables, like so:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#E1E4E8">PATH</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;/path/to/tool1:/path/to/tool2:/path/to/tool3:</span><span style="color:#E1E4E8">$PATH</span><span style="color:#9ECBFF">&quot;</span></span>
+<span class="line"><span style="color:#6A737D"># This new bash instance will have an updated path</span></span>
+<span class="line"><span style="color:#B392F0">bash</span></span></code></pre>
+<p>Say we’re writing a software that runs on Node.js and sqlite. Here’s how we’d
+write a derivation to setup a development environment:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="nix"><code><span class="line"><span style="color:#6A737D"># File default.nix</span></span>
+<span class="line"><span style="color:#F97583">let</span></span>
+<span class="line"><span style="color:#B392F0">    pkgs</span><span style="color:#F97583"> =</span><span style="color:#79B8FF"> import</span><span style="color:#9ECBFF"> &lt;nixpkgs&gt;</span><span style="color:#E1E4E8"> {};</span></span>
+<span class="line"><span style="color:#F97583">in</span><span style="color:#FFAB70"> pkgs</span><span style="color:#F97583">.</span><span style="color:#FFAB70">mkShell</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#B392F0">    buildInputs</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#FFAB70">        pkgs</span><span style="color:#F97583">.</span><span style="color:#FFAB70">nodejs</span></span>
+<span class="line"><span style="color:#FFAB70">        pkgs</span><span style="color:#F97583">.</span><span style="color:#FFAB70">sqlite</span></span>
+<span class="line"><span style="color:#E1E4E8">    ];</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Then, we could run this with <code>nix-shell ./default.nix</code> (or simply <code>nix-shell</code>).
+This would put us into a shell with access to the <code>node</code> command and the
+<code>sqlite</code> command, along with access to sqlite’s shared library objects.</p>
+<div class="root" data-astro-cid-csoa7wig> <a href="/characters#Cala" data-astro-cid-csoa7wig> <div class="portrait" data-astro-cid-csoa7wig> <img src="/_astro/Cala.CGIMVdea_n7Q2L.webp" alt="Cala, the Curious Capybara says:" title="Cala, the Curious Capybara" data-astro-cid-csoa7wig="true" loading="lazy" decoding="async" fetchpriority="auto" width="80" height="80"> Cala </div> </a> <div class="text-bubble" data-astro-cid-csoa7wig> <p>But what if I want to use a specific version of a program or library?</p> </div> </div> 
+<p>Through the magic of flakes, you can! Here’s a flake that’ll give you
+<a href="https://nodejs.org/">nodejs</a> version 12.18.0 and
+<a href="https://www.python.org/downloads/release/python-272/">python</a> version 2.7.18.8
+(on a linux machine)</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="nix"><code><span class="line"><span style="color:#6A737D"># Save this as flake.nix</span></span>
+<span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#B392F0">  inputs</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#B392F0">    nixpkgs-node12</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">url</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> &quot;github:nixos/nixpkgs/9480bae337095fd24f61380bce3174fdfe926a00&quot;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">    nixpkgs-python2</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">url</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> &quot;github:nixos/nixpkgs/9b008d60392981ad674e04016d25619281550a9d&quot;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">    nixpkgs-unstable</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">url</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> &quot;github:nixos/nixpkgs/nixos-unstable&quot;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  };</span></span>
+<span class="line"><span style="color:#B392F0">  outputs</span><span style="color:#F97583"> =</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#E1E4E8">      nixpkgs-unstable</span><span style="color:#F97583">,</span></span>
+<span class="line"><span style="color:#E1E4E8">      nixpkgs-python2</span><span style="color:#F97583">,</span></span>
+<span class="line"><span style="color:#E1E4E8">      nixpkgs-node12</span><span style="color:#F97583">,</span></span>
+<span class="line"><span style="color:#F97583">      ...</span></span>
+<span class="line"><span style="color:#E1E4E8">    }:</span></span>
+<span class="line"><span style="color:#F97583">    let</span></span>
+<span class="line"><span style="color:#B392F0">      system</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> &quot;x86_64-linux&quot;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">      pkgs-unstable</span><span style="color:#F97583"> =</span><span style="color:#FFAB70"> nixpkgs-unstable</span><span style="color:#F97583">.</span><span style="color:#FFAB70">legacyPackages</span><span style="color:#F97583">.</span><span style="color:#E1E4E8">${</span><span style="color:#FFAB70">system</span><span style="color:#E1E4E8">};</span></span>
+<span class="line"><span style="color:#B392F0">      pkgs-pyton2</span><span style="color:#F97583"> =</span><span style="color:#FFAB70"> nixpkgs-python2</span><span style="color:#F97583">.</span><span style="color:#FFAB70">legacyPackages</span><span style="color:#F97583">.</span><span style="color:#E1E4E8">${</span><span style="color:#FFAB70">system</span><span style="color:#E1E4E8">};</span></span>
+<span class="line"><span style="color:#B392F0">      pkgs-node12</span><span style="color:#F97583"> =</span><span style="color:#FFAB70"> nixpkgs-node12</span><span style="color:#F97583">.</span><span style="color:#FFAB70">legacyPackages</span><span style="color:#F97583">.</span><span style="color:#E1E4E8">${</span><span style="color:#FFAB70">system</span><span style="color:#E1E4E8">};</span></span>
+<span class="line"><span style="color:#F97583">    in</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#B392F0">      devShells</span><span style="color:#E1E4E8">.${</span><span style="color:#FFAB70">system</span><span style="color:#E1E4E8">}.</span><span style="color:#B392F0">default</span><span style="color:#F97583"> =</span><span style="color:#FFAB70"> pkgs-unstable</span><span style="color:#F97583">.</span><span style="color:#FFAB70">mkShell</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#B392F0">        buildInputs</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> [</span></span>
+<span class="line"><span style="color:#FFAB70">          pkgs-node12</span><span style="color:#F97583">.</span><span style="color:#FFAB70">nodejs-12_x</span></span>
+<span class="line"><span style="color:#FFAB70">          pkgs-pyton2</span><span style="color:#F97583">.</span><span style="color:#FFAB70">python2</span></span>
+<span class="line"><span style="color:#E1E4E8">        ];</span></span>
+<span class="line"><span style="color:#E1E4E8">      };</span></span>
+<span class="line"><span style="color:#E1E4E8">    };</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span>
+<span class="line"></span>
+<span class="line"></span></code></pre>
+<p>Then just run <code>nix develop</code> and <em>💥Boom💥</em> (If you have a sane configuration,
+you might need some extra fluff to run this:
+<code>NIXPKGS_ALLOW_INSECURE=1 nix develop --impure</code>). Yes, this is insane. Madness.
+But if you need this, here it is. You’ll always get the same version of these
+packages.</p>
+<div class="root" data-astro-cid-csoa7wig> <a href="/characters#Cala" data-astro-cid-csoa7wig> <div class="portrait" data-astro-cid-csoa7wig> <img src="/_astro/Cala.CGIMVdea_n7Q2L.webp" alt="Cala, the Curious Capybara says:" title="Cala, the Curious Capybara" data-astro-cid-csoa7wig="true" loading="lazy" decoding="async" fetchpriority="auto" width="80" height="80"> Cala </div> </a> <div class="text-bubble" data-astro-cid-csoa7wig> <p>I pray I’ll never need this, but I’m happy to know it’s here.</p> </div> </div> 
+<h3 id="easily-try-out-and-install-software">Easily try out and install software</h3>
+<p>You want to try out some software? Don’t want to remember to clean it up later?
+Sure! Go on <a href="https://search.nixos.org/">search.nix.org</a> and see what’s its
+package name in nixpkgs. Then, just run <code>nix shell nixpkgs#NAME_OF_PACKAGE</code>. For
+example, to get <a href="nodejs.org/">nodejs</a>, you can do <code>nix shell nixpkgs#nodejs</code>.
+You’ll then be dropped into a shell with node available. Want to give
+<a href="https://github.com/jesseduffield/lazygit">lazygit</a> a try? Sure, here you go:
+<code>nix shell nixpkgs#lazygit</code>. What about <a href="https://www.gimp.org/">Gimp</a>?
+Absolutely! <code>nix shell nixpkgs#gimp</code>.</p>
+<p>When you’re done, simply <code>exit</code> from your shell, or close your terminal. It’ll
+not be available in your PATH anymore, and it’ll be gone in the next
+<a href="https://nix.dev/manual/nix/2.30/package-management/garbage-collection.html">garbage collection</a>.</p>
+<div class="root" data-astro-cid-csoa7wig> <a href="/characters#Cala" data-astro-cid-csoa7wig> <div class="portrait" data-astro-cid-csoa7wig> <img src="/_astro/Cala.CGIMVdea_n7Q2L.webp" alt="Cala, the Curious Capybara says:" title="Cala, the Curious Capybara" data-astro-cid-csoa7wig="true" loading="lazy" decoding="async" fetchpriority="auto" width="80" height="80"> Cala </div> </a> <div class="text-bubble" data-astro-cid-csoa7wig> What if I want to keep it installed? </div> </div> 
+<p>Well, you could mess around with
+<a href="https://nix.dev/manual/nix/2.30/package-management/profiles">profiles</a>, but
+that’s kinda the same thing a regular package manager already does. Instead,
+Nix’s magic solution is in <span>
+✨<strong>Declarative Package
+Management</strong>✨
+<span></span></span>.</p>
+<p>If you think about it, “installing software” is essentially just generating some
+binaries (either through compilation or through downloading them from the
+internet) and storing them (or symlinking them) in a directory that’s available
+to your PATH environment variable. If you think about it even harder, this
+directory is kind of like a package: it has dependencies, and its “build script”
+would be to just make a symlink for each dependency. Kinda like this:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#E1E4E8">bin</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;/path/to/bin&quot;</span></span>
+<span class="line"><span style="color:#B392F0">mkdir</span><span style="color:#9ECBFF"> &quot;</span><span style="color:#E1E4E8">$bin</span><span style="color:#9ECBFF">&quot;</span></span>
+<span class="line"><span style="color:#B392F0">ln</span><span style="color:#79B8FF"> -s</span><span style="color:#9ECBFF"> /path/to/software1</span><span style="color:#9ECBFF"> &quot;</span><span style="color:#E1E4E8">$bin</span><span style="color:#9ECBFF">/software1&quot;</span></span>
+<span class="line"><span style="color:#B392F0">ln</span><span style="color:#79B8FF"> -s</span><span style="color:#9ECBFF"> /path/to/software2</span><span style="color:#9ECBFF"> &quot;</span><span style="color:#E1E4E8">$bin</span><span style="color:#9ECBFF">/software2&quot;</span></span>
+<span class="line"><span style="color:#B392F0">ln</span><span style="color:#79B8FF"> -s</span><span style="color:#9ECBFF"> /path/to/software3</span><span style="color:#9ECBFF"> &quot;</span><span style="color:#E1E4E8">$bin</span><span style="color:#9ECBFF">/software3&quot;</span></span>
+<span class="line"><span style="color:#6A737D"># ... Do this for every software you want available ...</span></span>
+<span class="line"></span>
+<span class="line"><span style="color:#E1E4E8">PATH</span><span style="color:#F97583">=</span><span style="color:#9ECBFF">&quot;</span><span style="color:#E1E4E8">$bin</span><span style="color:#9ECBFF">:</span><span style="color:#E1E4E8">$PATH</span><span style="color:#9ECBFF">&quot;</span></span>
+<span class="line"><span style="color:#6A737D"># This new bash instance will have software1, software2 and software3 available in its $PATH</span></span>
+<span class="line"><span style="color:#79B8FF">exec</span><span style="color:#9ECBFF"> bash</span></span></code></pre>
+<p>In short, you can represent your “installed packages” as a Nix derivation that
+builds a <code>bin</code> directory. This derivation is just Nix code, in a file, trackable
+by Git. If you add or remove any package, you can simply rebuild your <code>bin</code>
+directory. This means you have a single file representing your entire user
+space, which can be version controlled, so you could see which commit added or
+removed any software. Here’s how you do it in a regular NixOS system:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="nix"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#E1E4E8">  config</span><span style="color:#F97583">,</span></span>
+<span class="line"><span style="color:#E1E4E8">  pkgs</span><span style="color:#F97583">,</span></span>
+<span class="line"><span style="color:#F97583">  ...</span></span>
+<span class="line"><span style="color:#E1E4E8">}:</span></span>
+<span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#B392F0">  environment</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">systemPackages</span><span style="color:#F97583"> =</span><span style="color:#F97583"> with</span><span style="color:#FFAB70"> pkgs</span><span style="color:#E1E4E8">; [</span></span>
+<span class="line"><span style="color:#FFAB70">    wget</span></span>
+<span class="line"><span style="color:#FFAB70">    git</span></span>
+<span class="line"><span style="color:#FFAB70">    neovim</span></span>
+<span class="line"><span style="color:#FFAB70">    curl</span></span>
+<span class="line"><span style="color:#6A737D">    # ... Add all your software here...</span></span>
+<span class="line"><span style="color:#E1E4E8">  ];</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<p>Want to remove curl and add <a href="https://httpie.io/">httpie</a>? Sure, here you go!</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="diff"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#E1E4E8">  config,</span></span>
+<span class="line"><span style="color:#E1E4E8">  pkgs,</span></span>
+<span class="line"><span style="color:#E1E4E8">  ...</span></span>
+<span class="line"><span style="color:#E1E4E8">}:</span></span>
+<span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#E1E4E8">  environment.systemPackages = with pkgs; [</span></span>
+<span class="line"><span style="color:#E1E4E8">    wget</span></span>
+<span class="line"><span style="color:#E1E4E8">    git</span></span>
+<span class="line"><span style="color:#E1E4E8">    neovim</span></span>
+<span class="line"><span style="color:#FDAEB7"><span style="user-select:none">-</span>   curl</span></span>
+<span class="line"><span style="color:#85E89D"><span style="user-select:none">+</span>   httpie</span></span>
+<span class="line"><span style="color:#E1E4E8">    # ... Add all your software here...</span></span>
+<span class="line"><span style="color:#E1E4E8">  ];</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<div class="root" data-astro-cid-csoa7wig> <a href="/characters#Cala" data-astro-cid-csoa7wig> <div class="portrait" data-astro-cid-csoa7wig> <img src="/_astro/Cala.CGIMVdea_n7Q2L.webp" alt="Cala, the Curious Capybara says:" title="Cala, the Curious Capybara" data-astro-cid-csoa7wig="true" loading="lazy" decoding="async" fetchpriority="auto" width="80" height="80"> Cala </div> </a> <div class="text-bubble" data-astro-cid-csoa7wig> <p>Wait, won’t removing curl from my system break something? Isn’t curl a
+dependency for a lot of stuff?</p> </div> </div> 
+<p>That’s the beauty of it: no! Remember, we’re only building the directory that’ll
+be used in our <code>$PATH</code> environment variable. If another package needs curl to
+function, Nix will install curl, make it available to that package, but won’t
+add it to your <code>$PATH</code>, and won’t polute your environment.</p>
+<p>There are more details about this process, such as making sure things like
+<a href="https://en.wikipedia.org/wiki/Man_page">man pages</a> are available too, but this
+is the essence of it.</p>
+<h3 id="overriding-dependencies-from-software">Overriding dependencies from software</h3>
+<p>Have you ever wanted to run nodejs using musl instead of glibc? Or build an
+older version of curl using the current version of zlib? Or maybe you want to
+build openssh using an older (and vulnerable) version of openssl?</p>
+<div class="root" data-astro-cid-csoa7wig> <a href="/characters#Cala" data-astro-cid-csoa7wig> <div class="portrait" data-astro-cid-csoa7wig> <img src="/_astro/Cala.CGIMVdea_n7Q2L.webp" alt="Cala, the Curious Capybara says:" title="Cala, the Curious Capybara" data-astro-cid-csoa7wig="true" loading="lazy" decoding="async" fetchpriority="auto" width="80" height="80"> Cala </div> </a> <div class="text-bubble" data-astro-cid-csoa7wig> <p>No? What kind of psycho wants to do any of this?</p> </div> </div> 
+<p>Ok, ok. I know this is very unusual and mostly useless, but it’s still neat and
+I think it’s worth showing here. You can override a derivation’s dependencies,
+and replace them with anything you want, including older versions of these
+dependencies.</p>
+<p>Here’s an example of a flake that builds wget with openssl version 1.1.1q (from
+2022):</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8;overflow-x:auto" tabindex="0" data-language="nix"><code><span class="line"><span style="color:#E1E4E8">{</span></span>
+<span class="line"><span style="color:#B392F0">  inputs</span><span style="color:#F97583"> =</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#B392F0">    nixpkgs-openssl</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">url</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> &quot;github:nixos/nixpkgs/5f326e2a403e1cebaec378e72ceaf5725983376d&quot;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">    nixpkgs-unstable</span><span style="color:#E1E4E8">.</span><span style="color:#B392F0">url</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> &quot;github:nixos/nixpkgs/nixpkgs-unstable&quot;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">  };</span></span>
+<span class="line"><span style="color:#B392F0">  outputs</span><span style="color:#F97583"> =</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#E1E4E8">      nixpkgs-unstable</span><span style="color:#F97583">,</span></span>
+<span class="line"><span style="color:#E1E4E8">      nixpkgs-openssl</span><span style="color:#F97583">,</span></span>
+<span class="line"><span style="color:#F97583">      ...</span></span>
+<span class="line"><span style="color:#E1E4E8">    }:</span></span>
+<span class="line"><span style="color:#F97583">    let</span></span>
+<span class="line"><span style="color:#B392F0">      system</span><span style="color:#F97583"> =</span><span style="color:#9ECBFF"> &quot;x86_64-linux&quot;</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#B392F0">      pkgs-unstable</span><span style="color:#F97583"> =</span><span style="color:#FFAB70"> nixpkgs-unstable</span><span style="color:#F97583">.</span><span style="color:#FFAB70">legacyPackages</span><span style="color:#F97583">.</span><span style="color:#E1E4E8">${</span><span style="color:#FFAB70">system</span><span style="color:#E1E4E8">};</span></span>
+<span class="line"><span style="color:#B392F0">      pkgs-openssl</span><span style="color:#F97583"> =</span><span style="color:#FFAB70"> nixpkgs-openssl</span><span style="color:#F97583">.</span><span style="color:#FFAB70">legacyPackages</span><span style="color:#F97583">.</span><span style="color:#E1E4E8">${</span><span style="color:#FFAB70">system</span><span style="color:#E1E4E8">};</span></span>
+<span class="line"><span style="color:#F97583">    in</span></span>
+<span class="line"><span style="color:#E1E4E8">    {</span></span>
+<span class="line"><span style="color:#B392F0">      packages</span><span style="color:#E1E4E8">.${</span><span style="color:#FFAB70">system</span><span style="color:#E1E4E8">}.</span><span style="color:#B392F0">default</span><span style="color:#F97583"> =</span><span style="color:#FFAB70"> pkgs-unstable</span><span style="color:#F97583">.</span><span style="color:#FFAB70">wget</span><span style="color:#F97583">.</span><span style="color:#FFAB70">override</span><span style="color:#E1E4E8"> {</span></span>
+<span class="line"><span style="color:#B392F0">        openssl</span><span style="color:#F97583"> =</span><span style="color:#FFAB70"> pkgs-openssl</span><span style="color:#F97583">.</span><span style="color:#FFAB70">openssl</span><span style="color:#E1E4E8">;</span></span>
+<span class="line"><span style="color:#E1E4E8">      };</span></span>
+<span class="line"><span style="color:#E1E4E8">    };</span></span>
+<span class="line"><span style="color:#E1E4E8">}</span></span></code></pre>
+<h2 id="conclusion">Conclusion</h2>
+<p>I’ve only even scratched the surface of what Nix can do. There are things like
+<a href="https://nix.dev/tutorials/cross-compilation.html">cross-compilation</a>,
+<a href="https://github.com/nix-community/nixos-generators">generate ISO images of completely custom distributions</a>,
+<a href="https://github.com/nix-community/home-manager">use home-manager to write config files for most of your software</a>,
+and many other cool things. These are, however, more advanced use cases that
+escape the scope of this article. I hope I sparked enough of a flame in your
+heart to go after Nix knowledge yourself, and try this amazing tool that enables
+so many possibilities.</p>  </div> </article> </main> </body></html>

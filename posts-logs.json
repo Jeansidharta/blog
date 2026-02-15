@@ -44,6 +44,20 @@
     ],
     "path": "src/content/blog/deploying-software-with-nix.draft.mdx"
   },
+  "src/content/blog/the-quest-for-a-decent-vpn.draft.mdx": {
+    "creation": {
+      "hash": "4cafdfadeea326715df7067076bb36d1f9c701bc",
+      "date": "2025-12-08T04:02:13.000Z",
+      "message": "Fix for build errors"
+    },
+    "updates": [],
+    "path": "src/content/blog/the-quest-for-a-decent-vpn.draft.mdx"
+  },
+  "src/content/blog/understanding-software-with-strace.draft.mdx": {
+    "creation": null,
+    "updates": [],
+    "path": "src/content/blog/understanding-software-with-strace.draft.mdx"
+  },
   "src/content/blog/why-should-try-nix.mdx": {
     "creation": {
       "hash": "deb15b1e14463f4d79a0b6fb6ec08c8af7774d78",

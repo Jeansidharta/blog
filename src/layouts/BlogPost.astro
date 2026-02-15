@@ -45,7 +45,10 @@ const { creation, updates } = git ?? { creation: null, updates: [] };
 		</style>
 	</head>
 
-	<body>
+	<body class="js-off">
+        <script type="text/javascript">
+            document.body.className = document.body.className.replace('js-off','js-on');
+        </script>
 		<Header />
 		<main>
 			<article>

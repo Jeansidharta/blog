@@ -170,6 +170,10 @@ hr {
 	}
 }
 
+.js-off .js-only {
+	display: none !important;
+}
+
 .sr-only {
 	border: 0;
 	padding: 0;

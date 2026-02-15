@@ -1,0 +1,108 @@
+---
+import ChevronDown from "../../assets/chevron-down.svg";
+---
+<div class="root-drawer-component">
+	<div>
+		<slot />
+
+		<button class="js-only">
+			<ChevronDown />
+		</button>
+	</div>
+
+	<div class="js-only overlay" />
+	<button class="js-only top-button">
+		<ChevronDown />
+	</button>
+</div>
+
+<script>
+	const roots = document.querySelectorAll("div.root-drawer-component");
+
+	for (const root of roots) {
+		const buttons = root.querySelectorAll("button");
+		for(const button of buttons) {
+			button.addEventListener("click", () => {
+				if (root.getAttribute("data-open")) {
+					root.removeAttribute("data-open");
+					const isTopNotVisible = root.getBoundingClientRect().top < 0; 
+					if (isTopNotVisible)
+						root.scrollIntoView();
+				}
+				else {
+					root.setAttribute("data-open", true);
+				}
+			});
+		}
+	}
+</script>
+
+<style>
+
+body.js-on div.root-drawer-component {
+	position: relative;
+	border-radius: 16px;
+	height: 200px;
+	overflow-y: hidden;
+	/* border: 1px solid var(--secondary); */
+
+	&[data-open] {
+		height: auto;
+		overflow-y: auto;
+		& > div.overlay {
+			display: none;
+		}
+		& > button.top-button {
+			left: 4px;
+			top: 4px;
+			transform: translate(0, 0) rotate(-90deg);
+		}
+	}
+
+	& > div {
+		display: flex;
+		flex-direction: column;
+
+		& > button {
+			align-self: center;
+		}
+	}
+
+	&  button {
+		border: 2px solid var(--secondary);
+		box-shadow: 1px -1px 5px 5px rgba(0, 0, 0, 0.2);
+		border-radius: 100%;
+		background-color: var(--background-lighter);
+		cursor: pointer;
+		& > svg {
+			fill: var(--secondary);
+		}
+		&:not(.top-button) {
+			transform: rotate(180deg);
+			align-self: center;
+		}
+		&.top-button {
+			transition: 200ms;
+			position: absolute;
+			top: 150px;
+			left: 50%;
+			transform: translate(-50%, 0);
+		}
+	}
+
+	& > div.overlay {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: linear-gradient(
+			transparent 0%,
+			transparent 20%,
+			var(--background) 80%,
+			var(--background) 100%
+		);
+	}
+}
+
+</style>
