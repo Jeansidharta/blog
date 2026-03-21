@@ -24,7 +24,12 @@
         '';
       in
       {
-        devShell = pkgs.mkShell { buildInputs = with pkgs; [ nodePackages_latest.nodejs ]; };
+        devShell = pkgs.mkShell {
+          buildInputs = with pkgs; [
+            nodePackages_latest.nodejs
+            prettierd
+          ];
+        };
         packages.default = website;
         packages.docker = pkgs.dockerTools.buildLayeredImage {
           name = "sidharta-blog";

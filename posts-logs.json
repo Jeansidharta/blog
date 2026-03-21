@@ -54,7 +54,11 @@
     "path": "src/content/blog/the-quest-for-a-decent-vpn.draft.mdx"
   },
   "src/content/blog/understanding-software-with-strace.draft.mdx": {
-    "creation": null,
+    "creation": {
+      "hash": "61c21dcaa4d1dbbc3095acb691382d068310ea27",
+      "date": "2026-02-15T15:15:33.000Z",
+      "message": "Add post"
+    },
     "updates": [],
     "path": "src/content/blog/understanding-software-with-strace.draft.mdx"
   },
